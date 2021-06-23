@@ -36,24 +36,3 @@ while True:
 
     if not button.value:
         supervisor.reload()
-
-
-
-''' Example code for host
-import serial
-
-s = serial.Serial('COM3', 115200, timeout=1)
-command = b'my command\n\r'
-s.write(command)
-for _ in range(len(command)):
-	s.read()
-r = b''
-while True:
-	a = s.read()
-	if a == b'\r':
-		break
-	else:
-		r += a
-s.close()
-r
-'''

@@ -1,3 +1,10 @@
+"""
+feathercm.scac
+~~~~~~~~~~~~~~
+
+simplified command and control for FeAtHEr-Cm
+"""
+
 import supervisor
 import board
 import neopixel
