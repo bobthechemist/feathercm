@@ -10,6 +10,10 @@ from .settings import feathercmSettings
 class data:
     def toVoltage(self, value):
         """Convert raw value to a voltage
+
+        :param value: 16-bit integer, typically from ADC/DAC
+        :return: value rescaled as a voltage
+        :rtype: float
         """
         mv = feathercmSettings["maxVoltage"]
         mr = feathercmSettings["maxReading"]
