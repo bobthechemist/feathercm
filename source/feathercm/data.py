@@ -9,19 +9,21 @@ from .settings import feathercmSettings
 
 class data:
     def toVoltage(self, value):
-        """Convert raw value to a voltage"""
+        """Convert raw value to a voltage
+        """
         mv = feathercmSettings["maxVoltage"]
         mr = feathercmSettings["maxReading"]
         vg = feathercmSettings["virtualGround"]
         return ((value * mv)/mr - vg)
 
     def toInvertedVoltage(self,value):
-        """Convert raw value to a voltage"""
+        """Convert raw value to a voltage
+        """
         mv = feathercmSettings["maxVoltage"]
         mr = feathercmSettings["maxReading"]
         vg = feathercmSettings["virtualGround"]
         return -((value * mv)/mr - vg)
-        
+
 
     def toCurrent(self, value):
         """Convert raw value to a current"""
