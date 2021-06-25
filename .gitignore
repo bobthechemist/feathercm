@@ -68,8 +68,9 @@ instance/
 # Scrapy stuff:
 .scrapy
 
+# I think readthedocs needs this?
 # Sphinx documentation
-docs/_build/
+# docs/_build/
 
 # PyBuilder
 .pybuilder/
