@@ -13,8 +13,13 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
    :glob:
 
    intro
-   echemmod
-   chemistry/electronics/*
+   chemistry/*
+   chemistry/electrochemistry/index
+   chemistry/chromatography/index
+   chemistry/spectroscopy/index
+   chemistry/electronics/index
+   chemistry/python/index
+   chemistry/signals/index
    feathercm
    modules
    examples
