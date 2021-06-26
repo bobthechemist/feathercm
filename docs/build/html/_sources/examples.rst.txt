@@ -28,3 +28,12 @@ Some other example
     Subsequent indented lines comprise
     the body of the sidebar, and are
     interpreted as body elements.
+
+Really cool embed
+*****************
+
+Wouldn't it be nice if you could embed code for dynamic web-based textbooks?
+
+.. raw:: html
+
+  <iframe width='100%' height='300' src='https://rdrr.io/snippets/embed/' frameborder='0'></iframe>

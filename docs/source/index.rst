@@ -6,11 +6,15 @@
 Welcome to FeAtHEr-Cm's documentation!
 ======================================
 
+FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester of analytical chemistry: instrumental methods.  The focus is on problem-based learning that involves the design and implementation of rudimentary instruments from the core areas of electrochemistry, spectroscopy and chromatography.  In addition to content knowledge, students acquire key technological process skills - physical computing with microcontrollers and software programming - that are transferable to many professional-development pathways.
+
 .. toctree::
    :maxdepth: 2
+   :glob:
 
    intro
    echemmod
+   chemistry/electronics/*
    feathercm
    modules
    examples
