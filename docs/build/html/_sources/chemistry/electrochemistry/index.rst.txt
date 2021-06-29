@@ -1,6 +1,8 @@
 Electrochemistry
 ================
 
+In this three week module, you will learn about the electrochemical method called *cyclic voltammetry* by building an instrument that performs the technique: a *potentiostat*.  First, we will review some fundamental concepts in voltammetry and then learn about the key electrical component - the *operational amplifier* - that allows a potentiostat to work.  Lastly, we will evaluate the performance of the home-built instrument and use it to explore a chemical analysis problem.
+
 * Review of electrochemical fundamentals
 * Electrochemical instrumentation
 * Building a potentiostat

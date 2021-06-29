@@ -2,7 +2,8 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Chromatography" href="../chromatography/index.html" /><link rel="prev" title="Electrochemistry" href="index.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Building the potentiostat" href="../../design/bob173build.html" /><link rel="prev" title="Electrochemistry" href="index.html" />
 
     <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
         <title>A review of Voltammetry fundamentals - FeAtHEr-Cm 0.0.1 documentation</title>
@@ -109,11 +110,13 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Start Here</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">The FeAtHEr-Cm Textbook</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Electrochemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">A review of Voltammetry fundamentals</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../design/bob173build.html">Building the potentiostat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blank.html">---in progress---</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">The FeAtHEr-Cm Textbook</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chromatography/index.html">Chromatography</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chromatography/chrompt1.html">Placeholder module</a></li>
 </ul>
@@ -152,21 +155,40 @@
         <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="a-review-of-voltammetry-fundamentals">
+        <section id="a-review-of-voltammetry-fundamentals">
 <h1>A review of Voltammetry fundamentals<a class="headerlink" href="#a-review-of-voltammetry-fundamentals" title="Permalink to this headline">¶</a></h1>
-<p>Some pretty exciting stuff here.</p>
+<p>Much of this section is paraphrased from <a class="reference external" href="https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Book%3A_Analytical_Chemistry_2.1_(Harvey)/11%3A_Electrochemical_Methods">David Harvey’s Analytical Chemistry 2.1 text</a> which can be accessed via Libre Text.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Be sure to check out section 11.1 of Harvey’s book for a refresher on these topics.</p>
 </div>
+<p>Electrochemical techniques rely on the measurement of potential and current in order to understand chemical phenomena such as reactivity and concentration.  Most, but not all, electrochemical techniques involve the study of the movement of electrons in an oxidation-reduction reaction.  There are several important concepts in electrochemistry which are worth reviewing:</p>
+<ol class="arabic simple">
+<li><p>we cannot control simultaneously current and potential</p></li>
+<li><p>the electrode’s potential determines the analyte’s form at the electrode’s surface</p></li>
+<li><p>the concentration of analyte at the electrode’s surface may not be the same as its concentration in bulk solution</p></li>
+<li><p>current is a measure of the rate of the analyte’s oxidation or reduction</p></li>
+<li><p>in addition to an oxidation-reduction reaction, the analyte may participate in other chemical reactions</p></li>
+</ol>
+<p>Let’s discuss how these five concepts are incorporated into voltammetry.  The first item suggests that we must choose whether to control potential or current.  As the name suggests, we <em>measure</em> the current (-ammetry) as a function of potential in a voltammetric measurement. Because we control the potential, we control what is happening at the electrode surface.  We can adjust the potential to force a species in solution <a class="footnote-reference brackets" href="#id2" id="id1">1</a> to become oxidized or reduced by adjusting the potential relative to the reduction potential of the solute.  Note that we only have control of what happens <em>at the electrode/electrolyte interface</em>.  The bulk of the solution is unaffected unless we have specifically designed the experiment to influence the entire solution.  The fact that electrochemical reactions are happening <em>heterogeneously</em> in the solution has a significant impact on the relationships between current and potential that we will observe.  The last two points are what make voltammetry interesting.  Since current is a measure of the flow of electrons, more electron flow indicates that more oxidation or reduction (collectively, electrolysis) is happening.  Therefore, the magnitude of the current informs us about the rate of a reaction.  Lastly, we can use voltammetry to explore what - if anything - a molecule does before or after electrolysis.</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>technically, or adsorbed onto the electrode surface, but we won’t deal with adsorbed species here.</p>
+</dd>
+</dl>
+</section>
 
       </article>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../chromatography/index.html">
+          <a class="next-page" href="../../design/bob173build.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Chromatography</div>
+                <div class="title">Building the potentiostat</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
