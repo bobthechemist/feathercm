@@ -1,23 +1,13 @@
-Electrochemistry
-================
+Instrumental Approach to Voltammetry
+====================================
 
-In this three week module, you will learn about the electrochemical method called *cyclic voltammetry* by building an instrument that performs the technique: a *potentiostat*.  First, we will review some fundamental concepts in voltammetry and then learn about the key electrical component - the *operational amplifier* - that allows a potentiostat to work.  Lastly, we will evaluate the performance of the home-built instrument and use it to explore a chemical analysis problem.
-
-* Review of electrochemical fundamentals
-* Electrochemical instrumentation
-* Building a potentiostat
-
-.. a comment
-
-Student roadmap
-~~~~~~~~~~~~~~~
-
-1. What is voltammetry and why is it useful?  Perhaps read an introductory article on using voltammetry to determine the concentration of ascorbic acid in a fruit juice
-2. What are the important theoretical concepts in voltammetry: reactions occur at the electrode/liquid interface rather than the bulk, current is a measure of the rate of the reaction, equilibrium is rarely achieved, electrode potential provides a driving force for the reaction, concentration gradients strongly influence the rate of the reaction.
-3. What is a potentiostat?
+In this three week module, you will learn about the electrochemical method called *cyclic voltammetry* by building an instrument that performs the technique: a *potentiostat*.  We are going to use an *instrumental approach* whereby the focus will be on how to create an instrument that does the experiment we want to perform.
 
 
 .. toctree::
   :maxdepth: 2
+  :hidden:
 
+  iatovoltammetry1
+  iatovoltammetry2
   echempt1

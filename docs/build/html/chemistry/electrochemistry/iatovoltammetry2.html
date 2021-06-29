@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Try R here" href="r.html" /><link rel="prev" title="Essential Python Programming" href="../python/index.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="A review of Voltammetry fundamentals" href="echempt1.html" /><link rel="prev" title="The Voltage Divider" href="iatovoltammetry1.html" />
 
     <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
-        <title>Signals and Statistics - FeAtHEr-Cm 0.0.1 documentation</title>
+        <title>Voltage Divider Problems - FeAtHEr-Cm 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css" />
@@ -110,10 +110,10 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Start Here</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../electrochemistry/index.html">Electrochemistry</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../electrochemistry/iatovoltammetry1.html">The Voltage Divider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../electrochemistry/iatovoltammetry2.html">Voltage Divider Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../electrochemistry/echempt1.html">A review of Voltammetry fundamentals</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Electrochemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iatovoltammetry1.html">The Voltage Divider</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Voltage Divider Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="echempt1.html">A review of Voltammetry fundamentals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../design/bob173build.html">Building the potentiostat</a></li>
@@ -133,8 +133,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Essential Python Programming</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Signals and Statistics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="r.html">Try R here</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../signals/index.html">Signals and Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../signals/r.html">Try R here</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../feathercm.html">feathercm package</a></li>
@@ -157,37 +157,47 @@
         <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="signals-and-statistics">
-<h1>Signals and Statistics<a class="headerlink" href="#signals-and-statistics" title="Permalink to this headline">¶</a></h1>
-<p>Placeholder</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="r.html">Try R here</a></li>
-</ul>
+        <section id="voltage-divider-problems">
+<h1>Voltage Divider Problems<a class="headerlink" href="#voltage-divider-problems" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the last section, you should have noticed that the output voltage varies proportionally with the lower resistor and that the current and power are dependent on the sum of the two resistors. The equation for determining the output voltage is <span class="math notranslate nohighlight">\(V_{out}=V_{in}\frac{R_{lower}}{R_{lower}+R_{upper}}\)</span></p>
 </div>
+<p>One way we could create a variable potential is by changing the resistance values.  A variable resistor, or <em>potentiometer</em> provides this functionality.  The circuit below is similar to the one on the previous page, with several important differences:</p>
+<ul class="simple">
+<li><p>The two resistors are replaced by a potentiometer, which makes it easy to adjust the resistances above and below the test point while keeping the total resistance the same.  You should see a slider on the right hand side of the simulator that will control the potentiometer position.</p></li>
+<li><p>A switch has been added, which can be opened and closed with a double click.</p></li>
+<li><p>A new resistor has been added, which is the <em>load</em> or the object that we want to apply the output voltage to.</p></li>
+</ul>
+<iframe frameborder="0" height="500" src="https://tinyurl.com/yfeq6ato" width="100%"></iframe>
+
+Explore this simulation by doing the following:<ul class="simple">
+<li><p>Make sure the switch is open.  Adjust the potentiometer so that the resistances are roughly equal and the output voltage is about 2.5 V.</p></li>
+<li><p>Close the switch and note how the output voltage is affected.  Collect several data points with varying the resistance and noting the lower resistor value, the output potential with the switch open and the output potential with the switch closed.</p></li>
+</ul>
 </section>
 
       </article>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="r.html">
+          <a class="next-page" href="echempt1.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Try R here</div>
+                <div class="title">A review of Voltammetry fundamentals</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../python/index.html">
+          <a class="prev-page" href="iatovoltammetry1.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Essential Python Programming</div>
+                <div class="title">The Voltage Divider</div>
                 
               </div>
             </a>
@@ -201,7 +211,7 @@
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
             |
-            <a class="muted-link" href="../../_sources/chemistry/signals/index.rst.txt"
+            <a class="muted-link" href="../../_sources/chemistry/electrochemistry/iatovoltammetry2.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -220,5 +230,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/main.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
