@@ -66,15 +66,15 @@ class sweep(base):
 
     def setParameter(self, param, value):
         # Parameter checks should go here. Not sure why I cannot use dict
-        if param is "SR":
+        if param == "SR":
             self.scanrate = value
-        elif param is "ST":
+        elif param == "ST":
             self.startPotential = value
-        elif param is "EN":
+        elif param == "EN":
             self.endPotential = value
-        elif param is "SW":
+        elif param == "SW":
             self.switchPotential = value
-        elif param is "SF":
+        elif param == "SF":
             self.samplingFrequency = value
         else:
             raise NameError("Problem with parameter")

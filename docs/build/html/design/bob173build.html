@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Blank document" href="../blank.html" /><link rel="prev" title="A review of Voltammetry fundamentals" href="../chemistry/electrochemistry/echempt1.html" />
 
     <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
-        <title>Building the potentiostat - FeAtHEr-Cm 0.0.1 documentation</title>
+        <title>Building the potentiostat - FeAtHEr-Cm 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css" />
@@ -87,7 +87,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FeAtHEr-Cm 0.0.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">FeAtHEr-Cm 0.1.0 documentation</div></a>
     </div>
     <div class="header-right">
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
@@ -101,7 +101,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FeAtHEr-Cm 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">FeAtHEr-Cm 0.1.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html">
   <input class="sidebar-search" placeholder=Search name="q">
@@ -137,12 +137,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../chemistry/signals/r.html">Try R here</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../feathercm.html">feathercm package</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">source</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../feathercm.html">feathercm package</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feathercm.html">feathercm package</a></li>
 </ul>
 
 </div>
@@ -242,6 +238,43 @@ r"]
 p = FromCharactercode@DeleteCases[Normal@o,13|10,2]
 (* Convert list of number strings *)
 p2 = ImportString["["&lt;&gt;StringRiffle[Rest@p,","]&lt;&gt;"]","PythonExpression"]
+</pre></div>
+</div>
+<p>Perhaps this is an easier approach</p>
+<div class="highlight-mathematica notranslate"><div class="highlight"><pre><span></span>(* Start the session, call it s, and execute the initial commands *)
+s = StartExternalSession["Python"];
+ExternalEvaluate[s, "import serial; s = serial.Serial('COM3', 115200, \
+timeout=1)"]
+(* Create an external evaluate shortcut *)
+ee[x_String] := ExternalEvaluate[s, x]
+(* Check if data are in the buffer *)
+ee["s.in_waiting"]
+(* Send a command *)
+ee@"s.write(b'get\\n\\r')"
+(* Simplify command construction *)
+st = StringTemplate["s.write(b'``\\n\\r')"];
+ee@st["get"]
+(* View the response *)
+FromCharacterCode@DeleteCases[Normal@#, 13 | 10, 2] &amp;@ee@"
+r = []
+while s.in_waiting:
+      r = s.readlines()
+r
+"
+(* Make that a function *)
+res := FromCharacterCode@DeleteCases[Normal@#, 13 | 10, 2] &amp;@ee@"
+r = []
+while s.in_waiting:
+      r = s.readlines()
+r
+"
+(* perform a sweep *)
+ee@st["go"]
+Pause[5]
+out = res
+(* A clunky way to conver the result *)
+vals = ImportString["[" &lt;&gt; StringRiffle[Rest@out, ","] &lt;&gt; "]",
+  "PythonExpression"]
 </pre></div>
 </div>
 </section>

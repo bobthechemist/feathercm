@@ -22,7 +22,7 @@ copyright = '2021, BoB LeSuer (BoBthechemist)'
 author = 'BoB LeSuer (BoBthechemist)'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,6 +41,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Exclude circuitpython modules
+autodoc_mock_imports = ["supervisor", "board", "analogio"]
 
 # -- Options for HTML output -------------------------------------------------
 

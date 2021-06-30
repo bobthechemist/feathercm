@@ -4,6 +4,14 @@ feathercm package
 Submodules
 ----------
 
+feathercm.base module
+---------------------
+
+.. automodule:: feathercm.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 feathercm.data module
 ---------------------
 
@@ -20,26 +28,18 @@ feathercm.echem module
    :undoc-members:
    :show-inheritance:
 
-feathercm.exceptions module
----------------------------
-
-.. automodule:: feathercm.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-feathercm.scac module
----------------------
-
-.. automodule:: feathercm.scac
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 feathercm.settings module
 -------------------------
 
 .. automodule:: feathercm.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+feathercm.spec module
+---------------------
+
+.. automodule:: feathercm.spec
    :members:
    :undoc-members:
    :show-inheritance:

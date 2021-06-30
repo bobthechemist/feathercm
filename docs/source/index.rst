@@ -23,9 +23,8 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   chemistry/electronics/index
   chemistry/python/index
   chemistry/signals/index
-  feathercm
-  modules
   examples
+  feathercm
 
 Indices and tables
 ==================

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="source" href="modules.html" /><link rel="prev" title="Try R here" href="chemistry/signals/r.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Examples" href="examples.html" />
 
     <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
-        <title>feathercm package - FeAtHEr-Cm 0.0.1 documentation</title>
+        <title>feathercm package - FeAtHEr-Cm 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css" />
@@ -87,7 +87,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">FeAtHEr-Cm 0.0.1 documentation</div></a>
+      <a href="index.html"><div class="brand">FeAtHEr-Cm 0.1.0 documentation</div></a>
     </div>
     <div class="header-right">
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
@@ -101,7 +101,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">FeAtHEr-Cm 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">FeAtHEr-Cm 0.1.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html">
   <input class="sidebar-search" placeholder=Search name="q">
@@ -137,12 +137,8 @@
 <li class="toctree-l2"><a class="reference internal" href="chemistry/signals/r.html">Try R here</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">feathercm package</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">source</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">feathercm package</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">feathercm package</a></li>
 </ul>
 
 </div>
@@ -161,6 +157,46 @@
 <h1>feathercm package<a class="headerlink" href="#feathercm-package" title="Permalink to this headline">¶</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-feathercm.base">
+<span id="feathercm-base-module"></span><h2>feathercm.base module<a class="headerlink" href="#module-feathercm.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.commandValidQ">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">commandValidQ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.commandValidQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the latest command is valid</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.init">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">featherwing</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts feather-cm</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.initFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">initFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.initFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default initialization function</p>
+<p>Featherwing module should override this function, although it doesn’t have to.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.listen">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.listen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts listening to the serial line</p>
+<p>If a command is present, read the line, check if it is a valid command, execute the command and return the response.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.rebootFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">rebootFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.rebootFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots the potentiostat</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.respond">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">respond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.respond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Posts a response</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.base.sba">
+<span class="sig-prename descclassname"><span class="pre">feathercm.base.</span></span><span class="sig-name descname"><span class="pre">sba</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.base.sba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a command is available on the serial line</p>
+</dd></dl>
 </section>
 <section id="module-feathercm.data">
 <span id="feathercm-data-module"></span><h2>feathercm.data module<a class="headerlink" href="#module-feathercm.data" title="Permalink to this headline">¶</a></h2>
@@ -201,62 +237,104 @@
 <span class="sig-name descname"><span class="pre">toReading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.data.data.toReading" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="feathercm.data.data.toTime">
-<span class="sig-name descname"><span class="pre">toTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.data.data.toTime" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="feathercm.data.data.toSelf">
+<span class="sig-name descname"><span class="pre">toSelf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.data.data.toSelf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert raw value into a time, possibly useful for prefix conversion</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="feathercm.data.data.toVoltage">
 <span class="sig-name descname"><span class="pre">toVoltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.data.data.toVoltage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert raw value to a voltage</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – 16-bit integer, typically from ADC/DAC</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>value rescaled as a voltage</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
 </dd></dl>
 </dd></dl>
 </section>
 </section>
-<section id="feathercm-echem-module">
-<h2>feathercm.echem module<a class="headerlink" href="#feathercm-echem-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-feathercm.exceptions">
-<span id="feathercm-exceptions-module"></span><h2>feathercm.exceptions module<a class="headerlink" href="#module-feathercm.exceptions" title="Permalink to this headline">¶</a></h2>
-<section id="feathercm-exceptions">
-<h3>feathercm.exceptions<a class="headerlink" href="#feathercm-exceptions" title="Permalink to this headline">¶</a></h3>
-<p>This module contains the set of exceptions for feathercm</p>
-<dl class="py exception">
-<dt class="sig sig-object py" id="feathercm.exceptions.feathercmError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">feathercm.exceptions.</span></span><span class="sig-name descname"><span class="pre">feathercmError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.exceptions.feathercmError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Error handling for feathercm</p>
+<section id="module-feathercm.echem">
+<span id="feathercm-echem-module"></span><h2>feathercm.echem module<a class="headerlink" href="#module-feathercm.echem" title="Permalink to this headline">¶</a></h2>
+<section id="feathercm-echem">
+<h3>feathercm.echem<a class="headerlink" href="#feathercm-echem" title="Permalink to this headline">¶</a></h3>
+<p>This module contains functions and classes used in electrochemical measurements</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="feathercm.echem.base">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for electrochemical measurements</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.base.controlOff">
+<span class="sig-name descname"><span class="pre">controlOff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.base.controlOff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.base.controlOn">
+<span class="sig-name descname"><span class="pre">controlOn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.base.controlOn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.base.scanrateCheck">
+<span class="sig-name descname"><span class="pre">scanrateCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scanrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.base.scanrateCheck" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.base.voltageCheck">
+<span class="sig-name descname"><span class="pre">voltageCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.base.voltageCheck" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 </dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.echem.getFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">getFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.getFunc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.echem.goFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">goFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.goFunc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.echem.initFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">initFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.initFunc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.echem.setFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">setFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.setFunc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="feathercm.echem.sweep">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.sweep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#feathercm.echem.base" title="feathercm.echem.base"><code class="xref py py-class docutils literal notranslate"><span class="pre">feathercm.echem.base</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.sweep.doSweep">
+<span class="sig-name descname"><span class="pre">doSweep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.sweep.doSweep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a CV sweep</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.sweep.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.sweep.getParameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="feathercm.echem.sweep.setParameter">
+<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.sweep.setParameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.echem.testFunc">
+<span class="sig-prename descclassname"><span class="pre">feathercm.echem.</span></span><span class="sig-name descname"><span class="pre">testFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.echem.testFunc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 </section>
-</section>
-<section id="feathercm-scac-module">
-<h2>feathercm.scac module<a class="headerlink" href="#feathercm-scac-module" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-feathercm.settings">
 <span id="feathercm-settings-module"></span><h2>feathercm.settings module<a class="headerlink" href="#module-feathercm.settings" title="Permalink to this headline">¶</a></h2>
-<section id="feathercm-settings">
-<h3>feathercm.settings<a class="headerlink" href="#feathercm-settings" title="Permalink to this headline">¶</a></h3>
-<p>globally relevant settings for FeAtHEr-Cm</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.settings.makeCommandDict">
+<span class="sig-prename descclassname"><span class="pre">feathercm.settings.</span></span><span class="sig-name descname"><span class="pre">makeCommandDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.settings.makeCommandDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a dictionary from arguments</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="feathercm.settings.mergeDict">
+<span class="sig-prename descclassname"><span class="pre">feathercm.settings.</span></span><span class="sig-name descname"><span class="pre">mergeDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feathercm.settings.mergeDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges the passed dictionary into the global dictionary.
+There is no checking of key overlap at present.  Currently using this ‘feature’ to overload the base initialization command.  Not sure if this is necessary.</p>
+</dd></dl>
 </section>
+<section id="module-feathercm.spec">
+<span id="feathercm-spec-module"></span><h2>feathercm.spec module<a class="headerlink" href="#module-feathercm.spec" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-feathercm">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-feathercm" title="Permalink to this headline">¶</a></h2>
-<section id="feather-cm-library">
-<h3>FeAtHEr-Cm library<a class="headerlink" href="#feather-cm-library" title="Permalink to this headline">¶</a></h3>
-<p>FeAtHEr-Cm is a suite of inexpensive scientific instruments
-built around the M4 Express Feather and written in python.</p>
-</section>
 </section>
 </section>
 
@@ -264,23 +342,15 @@ built around the M4 Express Feather and written in python.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="modules.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">source</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="chemistry/signals/r.html">
+          
+          <a class="prev-page" href="examples.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Try R here</div>
+                <div class="title">Examples</div>
                 
               </div>
             </a>
@@ -316,24 +386,18 @@ built around the M4 Express Feather and written in python.</p>
             <ul>
 <li><a class="reference internal" href="#">feathercm package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-feathercm.base">feathercm.base module</a></li>
 <li><a class="reference internal" href="#module-feathercm.data">feathercm.data module</a><ul>
 <li><a class="reference internal" href="#feathercm-data">feathercm.data</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#feathercm-echem-module">feathercm.echem module</a></li>
-<li><a class="reference internal" href="#module-feathercm.exceptions">feathercm.exceptions module</a><ul>
-<li><a class="reference internal" href="#feathercm-exceptions">feathercm.exceptions</a></li>
+<li><a class="reference internal" href="#module-feathercm.echem">feathercm.echem module</a><ul>
+<li><a class="reference internal" href="#feathercm-echem">feathercm.echem</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#feathercm-scac-module">feathercm.scac module</a></li>
-<li><a class="reference internal" href="#module-feathercm.settings">feathercm.settings module</a><ul>
-<li><a class="reference internal" href="#feathercm-settings">feathercm.settings</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-feathercm">Module contents</a><ul>
-<li><a class="reference internal" href="#feather-cm-library">FeAtHEr-Cm library</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-feathercm.settings">feathercm.settings module</a></li>
+<li><a class="reference internal" href="#module-feathercm.spec">feathercm.spec module</a></li>
+<li><a class="reference internal" href="#module-feathercm">Module contents</a></li>
 </ul>
 </li>
 </ul>

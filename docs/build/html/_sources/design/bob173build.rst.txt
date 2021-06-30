@@ -48,3 +48,42 @@ Using a terminal program or python to communicate with the FeAtHEr-Cm instrument
   p = FromCharactercode@DeleteCases[Normal@o,13|10,2]
   (* Convert list of number strings *)
   p2 = ImportString["["<>StringRiffle[Rest@p,","]<>"]","PythonExpression"]
+
+Perhaps this is an easier approach
+
+.. code:: mathematica
+
+  (* Start the session, call it s, and execute the initial commands *)
+  s = StartExternalSession["Python"];
+  ExternalEvaluate[s, "import serial; s = serial.Serial('COM3', 115200, \
+  timeout=1)"]
+  (* Create an external evaluate shortcut *)
+  ee[x_String] := ExternalEvaluate[s, x]
+  (* Check if data are in the buffer *)
+  ee["s.in_waiting"]
+  (* Send a command *)
+  ee@"s.write(b'get\\n\\r')"
+  (* Simplify command construction *)
+  st = StringTemplate["s.write(b'``\\n\\r')"];
+  ee@st["get"]
+  (* View the response *)
+  FromCharacterCode@DeleteCases[Normal@#, 13 | 10, 2] &@ee@"
+  r = []
+  while s.in_waiting:
+  	r = s.readlines()
+  r
+  "
+  (* Make that a function *)
+  res := FromCharacterCode@DeleteCases[Normal@#, 13 | 10, 2] &@ee@"
+  r = []
+  while s.in_waiting:
+  	r = s.readlines()
+  r
+  "
+  (* perform a sweep *)
+  ee@st["go"]
+  Pause[5]
+  out = res
+  (* A clunky way to conver the result *)
+  vals = ImportString["[" <> StringRiffle[Rest@out, ","] <> "]",
+    "PythonExpression"]
