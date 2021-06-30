@@ -227,6 +227,24 @@
 </dd>
 </dl>
 </section>
+<section id="operation-notes">
+<h2>Operation notes<a class="headerlink" href="#operation-notes" title="Permalink to this headline">¶</a></h2>
+<p>Using a terminal program or python to communicate with the FeAtHEr-Cm instrument.  Mathematica can also be used via the ExternalEvaluate command.</p>
+<div class="highlight-mathematica notranslate"><div class="highlight"><pre><span></span>(* start python session, send/receive data *)
+s = StartExternalSession["Python"]
+ExternalEvaluate[s, "s.write(b'cmd\\n\\r')"]
+o = ExternalEvaluate[s, "
+r = []
+while s.in_waiting:
+  r = s.readlines()
+r"]
+(* Convert data to useable form, removing linefeeds *)
+p = FromCharactercode@DeleteCases[Normal@o,13|10,2]
+(* Convert list of number strings *)
+p2 = ImportString["["&lt;&gt;StringRiffle[Rest@p,","]&lt;&gt;"]","PythonExpression"]
+</pre></div>
+</div>
+</section>
 </section>
 
       </article>
@@ -285,6 +303,7 @@
             <ul>
 <li><a class="reference internal" href="#">Building the potentiostat</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#operation-notes">Operation notes</a></li>
 </ul>
 </li>
 </ul>

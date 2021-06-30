@@ -28,3 +28,23 @@ The Eagle documents above can be used to create a layout that is compatible with
   "S1","N/A","B3F-10XX OMRON SWITCH"
 
 .. [BARD2001] Bard, Allen J., and Larry R. Faulkner. Electrochemical methods : fundamentals and applications. Hoboken, NJ: John Wiley & Sons, Inc, 2001. Print.
+
+Operation notes
+~~~~~~~~~~~~~~~
+
+Using a terminal program or python to communicate with the FeAtHEr-Cm instrument.  Mathematica can also be used via the ExternalEvaluate command.
+
+.. code:: mathematica
+
+  (* start python session, send/receive data *)
+  s = StartExternalSession["Python"]
+  ExternalEvaluate[s, "s.write(b'cmd\\n\\r')"]
+  o = ExternalEvaluate[s, "
+  r = []
+  while s.in_waiting:
+    r = s.readlines()
+  r"]
+  (* Convert data to useable form, removing linefeeds *)
+  p = FromCharactercode@DeleteCases[Normal@o,13|10,2]
+  (* Convert list of number strings *)
+  p2 = ImportString["["<>StringRiffle[Rest@p,","]<>"]","PythonExpression"]
