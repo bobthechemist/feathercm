@@ -1,0 +1,11 @@
+Mathematica 12.3 may be required for python integration to run.  Not a priority as we can run python from command line
+
+Useful to have atom (with git connection) and python installed on client computer
+
+python interface will be nice
+
+* write function has s.write(f'{cmd}\n\r'.encode('utf-8'))
+* read command has code from M example
+* Created a client.py for easy communication via python
+* need to handle garbage collection  default frequency incompatible with scan rates around 0.2 V/s
+* Can probably simplify byte to string with b'bytearray'.decode()
