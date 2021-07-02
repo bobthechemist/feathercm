@@ -4,8 +4,8 @@ feathercm.echem
 
 This module contains functions and classes used in electrochemical measurements
 """
-from .exceptions import feathercmError
-from .settings import feathercmSettings
+from .base import *
+from .settings import *
 from analogio import AnalogIn
 from analogio import AnalogOut
 import time
@@ -30,14 +30,14 @@ class base:
 
     def controlOn(self):
         if self.controlActive:
-            raise(feathercmError("Control pin already active. Bailing because this shouldn't happen."))
+            raise(RuntimeError("Control pin already active. Bailing because this shouldn't happen."))
         else:
             self.control = AnalogOut(self.controlPin)
             self.controlActive = True
 
     def controlOff(self):
         if not self.controlActive:
-            raise(feathercmError("Control pin is not active. Bailing because this shouldn't happen."))
+            raise(RuntimeError("Control pin is not active. Bailing because this shouldn't happen."))
         else:
             self.control.deinit()
             self.controlActive = False
@@ -46,13 +46,13 @@ class base:
         min = feathercmSettings["minimumScanrate"]
         max = feathercmSettings["maximumScanrate"]
         if not (scanrate >= min and scanrate <= max):
-            raise(feathercmError("{} is not a valid scan rate".format(scanrate)))
+            raise(RuntimeError("{} is not a valid scan rate".format(scanrate)))
 
     def voltageCheck(self, voltage):
         mv = feathercmSettings["maxVoltage"]
         vg = feathercmSettings["virtualGround"]
         if not ( (voltage + vg) <= mv and (voltage + vg) ) >= 0:
-            raise(feathercmError("Voltage ({}) is out of range.".format(voltage)))
+            raise(RuntimeError("Voltage ({}) is out of range.".format(voltage)))
 
 class sweep(base):
     def __init__(self,control, voltage, current):
@@ -60,9 +60,39 @@ class sweep(base):
         self.switchPotential = 0.5
         self.endPotential = -0.5
         self.scanrate = 1 # V/s
-        self.samplingFrequency = 50 # Hz
+        self.samplingFrequency = 10 # Hz
         self.ns = 1000000000 # simple definition
         super().__init__(control, voltage, current)
+
+    def setParameter(self, param, value):
+        # Parameter checks should go here. Not sure why I cannot use dict
+        if param == "SR":
+            self.scanrate = value
+        elif param == "ST":
+            self.startPotential = value
+        elif param == "EN":
+            self.endPotential = value
+        elif param == "SW":
+            self.switchPotential = value
+        elif param == "SF":
+            self.samplingFrequency = value
+        else:
+            raise NameError("Problem with parameter")
+
+
+    def getParameter(self, param):
+        params = {
+            "SR": self.scanrate,
+            "ST": self.startPotential,
+            "EN": self.endPotential,
+            "SW": self.switchPotential,
+            "SF": self.samplingFrequency
+        }
+        if param in params:
+            res = str(params[param])
+        else:
+            res = "NA"
+        return res
 
     def doSweep(self):
         """ Perform a CV sweep """
@@ -78,6 +108,8 @@ class sweep(base):
         self.controlOn()
         currPotential = self.startPotential
         self.control.value = d.toReading(currPotential)
+        # Fixed quiet time
+        time.sleep(0.5)
         d.append([self.voltage.value, self.current.value])
         nsr = self.scanrate / self.ns # Gets used frequently
         # Start the forward scan
@@ -104,3 +136,50 @@ class sweep(base):
         self.controlOff()
 
         return d
+
+# Board module should identify itself
+FEATHERWING = "echem"
+
+# Functions needed for the board
+def initFunc(*argv):
+    global instrument
+    instrument = sweep(board.A0, board.A2, board.A3)
+    return f'I have initialized {argv[0]}'
+
+def goFunc(*argv):
+    global instrument
+    out = instrument.doSweep()
+    return out
+
+def testFunc(*argv):
+    time.sleep(5)
+    return [1.2,2.4]
+
+def setFunc(*argv):
+    global instrument
+    res = str(argv)
+    if argv[0] is None:
+        res = "Choose from scan rate (SR), start potential (ST), switch potential (SW), end potential (EN) or sampling frequency (SF)."
+    else:
+        # Split argument
+        par = argv[0].split(" ", 1)
+        if par[0] in ('SR', 'ST', 'SW', 'EN', 'SF'):
+            res = f'I will set {par[0]} to {par[1]}.'
+            instrument.setParameter(par[0],float(par[1]))
+        else:
+            res = f'{par[1]} Valid parameters are: SR, ST, SW, EN, and SF.'
+    return res
+
+def getFunc(*argv):
+    global instrument
+    res = str(argv)
+    if argv[0] is None:
+        res = "Choose from scan rate (SR), start potential (ST), switch potential (SW), end potential (EN) or sampling frequency (SF)."
+    else:
+        res = instrument.getParameter(argv[0])
+    return res
+
+# Names of commands and their associated functions
+# IMPT: Append to these variables.
+commandList += ['init','go', 'test', 'set', 'get']
+functionList += [initFunc, goFunc, testFunc, setFunc, getFunc]

@@ -4,21 +4,17 @@ feathercm.data
 
 data class for FeAtHEr-Cm
 """
-from .exceptions import feathercmError
-from .settings import feathercmSettings
+#gfrom .base import *
+from .settings import *
 
 class data:
     def toVoltage(self, value):
         """Convert raw value to a voltage
-
-        :param value: 16-bit integer, typically from ADC/DAC
-        :return: value rescaled as a voltage
-        :rtype: float
         """
         mv = feathercmSettings["maxVoltage"]
         mr = feathercmSettings["maxReading"]
         vg = feathercmSettings["virtualGround"]
-        return ((value * mv)/mr - vg)
+        return (value * mv)/mr - vg
 
     def toInvertedVoltage(self,value):
         """Convert raw value to a voltage
@@ -28,12 +24,12 @@ class data:
         vg = feathercmSettings["virtualGround"]
         return -((value * mv)/mr - vg)
 
-
     def toCurrent(self, value):
-        """Convert raw value to a current"""
+        """Convert raw value to a current
+        """
         return self.toVoltage(value)/feathercmSettings["currentFollowerResistor"]
 
-    def toTime(self, value):
+    def toSelf(self, value):
         """Convert raw value into a time, possibly useful for prefix conversion"""
         return value
 
@@ -44,10 +40,10 @@ class data:
         return int(mr*(voltage+vg)//mv)
 
     def __init__(self, *argv):
-        self.validUnits = ["Current", "Voltage", "InvertedVoltage", "Time"]
-        self.unitFuncs = [self.toCurrent, self.toVoltage, self.toInvertedVoltage, self.toTime]
+        self.validUnits = ["Current", "Voltage", "InvertedVoltage", "None"]
+        self.unitFuncs = [self.toCurrent, self.toVoltage, self.toInvertedVoltage, self.toSelf]
         self.unitDict = {self.validUnits[i]:self.unitFuncs[i] for i in range(0,len(self.validUnits))}
-        self.vals = []
+        self.vals = [[10000,10000],[32768,32768]]
         self.dim = []
         self.storedUnits = 'raw'
         self.maxlength = 1000
@@ -55,7 +51,7 @@ class data:
             if arg in self.validUnits:
                 self.dim.append(arg)
             else:
-                raise(feathercmError("The unit '{}' is not valid.".format(arg)))
+                self.dim.append("None")
 
     def fromRaw(self, which, value):
         """Converts a reading into a value"""

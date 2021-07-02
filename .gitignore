@@ -2,3 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# binary files from documentation build
+docs/build
+
+# Note: `use git rm -r --cached .` after updating this file
