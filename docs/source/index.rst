@@ -16,6 +16,7 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   intro
   Electrochemistry <chemistry/electrochemistry/index>
   design/bob173build
+  chemistry/electrochemistry/exampleuse
   ---in progress--- <blank>
   chemistry/*
   chemistry/chromatography/index

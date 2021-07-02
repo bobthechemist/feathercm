@@ -5,6 +5,23 @@ Start Here
 
 ``FeAtHEr-Cm`` is a platform for building a better understanding of scientific instrumentation.  It is my attempt at developing what I call an *Instrumental Approach to Chemical Analysis.*  Traditionally, the second semester of analytical chemistry covers instrumentation used in the discipline.  Recent advances in technology, electronics and programming allow us to explore how scientific measurements are made by *designing our own instruments* and using them to explore chemical systems.  FeAtHEr-Cm helps us do that.
 
+Why FeAtHEr-Cm?
+~~~~~~~~~~~~~~~
+
+When exploring platforms that could be useful for introducing chemists it scientific instrumentation design, I wanted something that was relatively inexpensive, easy to operate, established, and supported by a larger community.  The `feather platform <https://learn.adafruit.com/adafruit-feather>`_ by Adafruit Industries checks all of those boxes *plus* provides a cross-compatible platform with a vast array of tools already available.  The flexibility comes at a cost, however, and that is the array of choices that can be made is a bit overwhelming.  To bring some focus to the project, I have made two design decisions:
+
+* The microcontroller board that will serve as the brains of any FeAtHEr-Cm instrument is the M4 Express and there is no intention to make activities compatible with other microcontrollers.
+* All programming will be done in `Circuit Python <circuitpython.org>`_
+
+The primary reason for selecting the M4 is that this microcontroller contains two 12-bit digital-to-analog outputs, which simplifies many designs (not least of which is the potentiostat).  The analog inputs are also 12 bit which is a very nice feature in education-based instrumentation.  By limiting software design to circuit python we not only decrease the programming learning curve (only one language is needed to control and communicate with the instrument) but it increases the accessibility of the instrument by being a plug and play option.
+
+As for that odd capitalization, it is something I've done for a long time.  I'm not alone and there are `many chemists <https://www.ionicviper.org/>`_ who do this.
+
+Want to dive in?
+****************
+
+If you are excited about this project and want to start exploring right away, then I suggest purchasing an `M4 Feather <https://www.adafruit.com/product/3857>`_  along with Adafruit's `parts pal <https://www.adafruit.com/product/2975>`_.  That will give you nearly all the parts you need, and many that you'll find fun to play with.  The only additional components I suggest would be alligator clips and a quad op amp - the MCP6004 - which isn't sold by Adafruit but you can find it at other vendors.  I purchase from `Newark <newark.com>`_ but you might want to try `Digikey <digikey.com>`_ as they are also a reseller for Adafruit products and you might be able to get all of the components from one vendor.
+
 A work in progress
 ~~~~~~~~~~~~~~~~~~
 
@@ -24,4 +41,4 @@ I imagine that users of the content will find typographical and content errors a
 What to explore right now
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The current area of activity is building the potentiostat, creating software for controlling it and developing activities for exploring how a potentiostat is built and operated.  You will likely see the most changes in these pages over the next few weeks. 
+The current area of activity is building the potentiostat, creating software for controlling it and developing activities for exploring how a potentiostat is built and operated.  You will likely see the most changes in these pages over the next few weeks.

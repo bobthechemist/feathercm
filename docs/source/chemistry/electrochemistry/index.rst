@@ -10,4 +10,5 @@ In this three week module, you will learn about the electrochemical method calle
 
   iatovoltammetry1
   iatovoltammetry2
+  iatovoltammetry3
   echempt1
