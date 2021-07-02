@@ -13,20 +13,6 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   :maxdepth: 2
   :glob:
 
-<<<<<<< HEAD
-   intro
-   chemistry/*
-   chemistry/electrochemistry/index
-   chemistry/chromatography/index
-   chemistry/spectroscopy/index
-   chemistry/electronics/index
-   chemistry/python/index
-   chemistry/signals/index
-   chemistry/appendix/index
-   feathercm
-   modules
-   examples
-=======
   intro
   Electrochemistry <chemistry/electrochemistry/index>
   design/bob173build
@@ -39,7 +25,6 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   chemistry/signals/index
   examples
   feathercm
->>>>>>> ff2f4b12a55e2d0133c979198ad5139433a2c4ec
 
 Indices and tables
 ==================
