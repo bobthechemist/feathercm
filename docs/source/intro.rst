@@ -3,7 +3,7 @@ Start Here
 
 **Welcome**. If you are here, you were either invited or spend an awful lot of time randomly clicking links on the internet...
 
-``FeAtHEr-Cm`` is a platform for building a better understanding of scientific instrumentation.  It is my attempt at developing what I call an *Instrumental Approach to Chemical Analysis.*[*]_  Traditionally, the second semester of analytical chemistry covers instrumentation used in the discipline.  Recent advances in technology, electronics and programming allow us to explore how scientific measurements are made by *designing our own instruments* and using them to explore chemical systems.  FeAtHEr-Cm helps us do that.
+``FeAtHEr-Cm`` is a platform for building a better understanding of scientific instrumentation.  It is my attempt at developing what I call an *Instrumental Approach to Chemical Analysis.*\ [*]_  Traditionally, the second semester of analytical chemistry covers instrumentation used in the discipline.  Recent advances in technology, electronics and programming allow us to explore how scientific measurements are made by *designing our own instruments* and using them to explore chemical systems.  FeAtHEr-Cm helps us do that.
 
 Why FeAtHEr-Cm?
 ~~~~~~~~~~~~~~~
