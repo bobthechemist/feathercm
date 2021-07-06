@@ -3,7 +3,7 @@ Start Here
 
 **Welcome**. If you are here, you were either invited or spend an awful lot of time randomly clicking links on the internet...
 
-``FeAtHEr-Cm`` is a platform for building a better understanding of scientific instrumentation.  It is my attempt at developing what I call an *Instrumental Approach to Chemical Analysis.*  Traditionally, the second semester of analytical chemistry covers instrumentation used in the discipline.  Recent advances in technology, electronics and programming allow us to explore how scientific measurements are made by *designing our own instruments* and using them to explore chemical systems.  FeAtHEr-Cm helps us do that.
+``FeAtHEr-Cm`` is a platform for building a better understanding of scientific instrumentation.  It is my attempt at developing what I call an *Instrumental Approach to Chemical Analysis.*[*]_  Traditionally, the second semester of analytical chemistry covers instrumentation used in the discipline.  Recent advances in technology, electronics and programming allow us to explore how scientific measurements are made by *designing our own instruments* and using them to explore chemical systems.  FeAtHEr-Cm helps us do that.
 
 Why FeAtHEr-Cm?
 ~~~~~~~~~~~~~~~
@@ -42,3 +42,5 @@ What to explore right now
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The current area of activity is building the potentiostat, creating software for controlling it and developing activities for exploring how a potentiostat is built and operated.  You will likely see the most changes in these pages over the next few weeks.
+
+.. [*] Yes, this title is homage to Ewing's 1954 text and no, it is not at all suggestive that I am (or ever will be) comparable to Ewing as a scientist.
