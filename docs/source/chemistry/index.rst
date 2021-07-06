@@ -18,23 +18,30 @@ Lastly, there is an excellent circuit simulation package available on the intern
 The expected student trajectory is as follows:
 
 1. Electronics principles
+
   * Understand what a voltage divider is and how it is created using two resistors
   * Explore relationship between resistor magnitude, power consumed and output voltage
   * Analyze the effect of an external load on a voltage divider
   * Compare simulated and actual performance metrics with the bob173.
+
 2. An overview of operational amplifiers and their utility
+
   * Understand that an operational amplifier can compare the relative values of the input voltages
   * Explore the role of op amps in buffering an input
   * Evaluate how performance of a real operation amplifier compares to the ideal behavior of drawing no current.
     - This section will likely be the first entry into (circuit) python programming.
   * Explore how operational amplifiers can add multiple inputs together.
   * Explore how operational amplifiers can magnify the intensity of a signal.
+
 3. Combining the elements - a basic adder potentiostat
+
   * Learn how to read a schematic
   * Explore python programming needed to communicate with the bob173
   * Calibrate voltage and current scales of the bob173
   * Perform a cyclic voltammetry experiment and analyze results
+
 4. Going further - improving the potentiostat
+
   * Reducing noise
   * Incorporating iR compensation
   * Exploring instrument limitations
