@@ -73,7 +73,68 @@ def respond(response):
     else:
         print(f"I cannot handle type: {type(response)}.")
 
-def fixM4AI(val):
-    '''M4 analog inputs are not working as well as I would like them to.  This is a calibration fix.
+# Support functions
+
+def analogWriteValue(x):
+    '''Returns the 'correct' 12-bit integer value that generates the expected voltage
+    for the input value.  To perform this calibration, measure the actual voltage (with DVM) at
+    A0 with respect to A0 setting.  Best results are obtained for voltages under 2.0.  Find the
+    absolute error and convert that to an A0 adjustment value. Find the best fit line between A0 (x axis)
+    and A0 adjustment value (y axis).
+
+    Note: the M4 cannot handle rail-to-rail and output is limited to 0.1 to 3.2
     '''
-    return int((val+80.0051)/1.01876)
+    slope = 1.005747
+    intercept = 28.3129
+    if x < intercept:
+        raise ValueError(f"Analog output value must be greater than {intercept}.")
+    elif not 124 <= x <= 3972:
+        raise ValueError(f"Requested value is outside of the range possible with M4.")
+    return int(x * slope - intercept)
+
+def analogWrite(pin, value):
+    '''Writes to an analog pin after correcting for calibration curve adjustments and switching
+    value from 12 bit to 16 bit.
+    '''
+    val = analogWriteValue(value) << 4
+    print(f'sending {val}')
+    pin.value = val
+    return None
+
+def analogWriteVoltage(pin, value, vground = False):
+    '''Writes to an analog pin the requested voltage after correcting for calibration curve
+    adjustments.  Will correct for virtual ground if requested.
+    '''
+    val = value
+    if vground:
+        val += feathercmSettings["virtualGround"]
+    val = val/feathercmSettings["maxVoltage"] * 4096
+    val = analogWriteValue(val)
+    print(f'sending {val}')
+    pin.value = val << 4
+    return None
+
+def analogRead(pin):
+    ''' Reads an analog pin and adjusts the value according to a linear calibration.  Allows
+    rapid signal averaging and returns the value as 12-bit.  Currently, errors seem to be on the
+    order of +/- 5 mV.
+    '''
+    slope = 1.000405 # Consider putting calibration data in the settings file
+    intercept = -12.7531
+    n = 4
+    val = 0
+    for i in range(n):
+        val += pin.value >> 4 # convert to 12-bit
+    val = val/n
+    return int(val * slope + intercept)
+
+def toVoltage(reading, vground = False):
+    '''Convert a 12-bit reading into a voltage.  Setting vground = False will return 0 to 3.3 V,
+    a true value will return -1.65 to +1.65 V
+    '''
+    val = reading/4096 * feathercmSettings["maxVoltage"]
+    if vground:
+        val -= feathercmSettings["virtualGround"]
+
+    return val
+
