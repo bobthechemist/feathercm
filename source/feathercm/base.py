@@ -72,3 +72,8 @@ def respond(response):
             print(i)
     else:
         print(f"I cannot handle type: {type(response)}.")
+
+def fixM4AI(val):
+    '''M4 analog inputs are not working as well as I would like them to.  This is a calibration fix.
+    '''
+    return int((val+80.0051)/1.01876)
