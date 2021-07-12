@@ -97,11 +97,11 @@ def analogWrite(pin, value):
     value from 12 bit to 16 bit.
     '''
     val = analogWriteValue(value) << 4
-    print(f'sending {val}')
+    #print(f'sending {val}')
     pin.value = val
     return None
 
-def analogWriteVoltage(pin, value, vground = False):
+def analogWriteVoltage(pin, value, vground = True):
     '''Writes to an analog pin the requested voltage after correcting for calibration curve
     adjustments.  Will correct for virtual ground if requested.
     '''
@@ -110,25 +110,24 @@ def analogWriteVoltage(pin, value, vground = False):
         val += feathercmSettings["virtualGround"]
     val = val/feathercmSettings["maxVoltage"] * 4096
     val = analogWriteValue(val)
-    print(f'sending {val}')
+    #print(f'sending {val}')
     pin.value = val << 4
     return None
 
-def analogRead(pin):
+def analogRead(pin, n = 8):
     ''' Reads an analog pin and adjusts the value according to a linear calibration.  Allows
     rapid signal averaging and returns the value as 12-bit.  Currently, errors seem to be on the
     order of +/- 5 mV.
     '''
     slope = 1.000405 # Consider putting calibration data in the settings file
     intercept = -12.7531
-    n = 4
     val = 0
     for i in range(n):
         val += pin.value >> 4 # convert to 12-bit
     val = val/n
     return int(val * slope + intercept)
 
-def toVoltage(reading, vground = False):
+def toVoltage(reading, vground = True):
     '''Convert a 12-bit reading into a voltage.  Setting vground = False will return 0 to 3.3 V,
     a true value will return -1.65 to +1.65 V
     '''

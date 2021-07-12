@@ -60,21 +60,31 @@ class sweep(base):
         self.switchPotential = 0.5
         self.endPotential = -0.5
         self.scanrate = 1 # V/s
-        self.samplingFrequency = 10 # Hz
+        self.samplingFrequency = None
+        self.setSamplingFrequency() # Hz
         self.ns = 1000000000 # simple definition
         super().__init__(control, voltage, current)
 
+    def setSamplingFrequency(self):
+        '''Calculates the sampling frequency that results in 1024 points for the CV
+        '''
+        vt = abs(self.switchPotential - self.startPotential) + abs(self.endPotential - self.switchPotential)
+        minval = feathercmSettings["minimumFrequency"]
+        maxval = feathercmSettings["maximumFrequency"]
+        self.samplingFrequency =  min(maxval, max(minval,(1024 * self.scanrate / vt)))
+
+
     def setParameter(self, param, value):
         # Parameter checks should go here. Not sure why I cannot use dict
-        if param == "SR":
+        if param is "SR":
             self.scanrate = value
-        elif param == "ST":
+        elif param is "ST":
             self.startPotential = value
-        elif param == "EN":
+        elif param is "EN":
             self.endPotential = value
-        elif param == "SW":
+        elif param is "SW":
             self.switchPotential = value
-        elif param == "SF":
+        elif param is "SF":
             self.samplingFrequency = value
         else:
             raise NameError("Problem with parameter")
@@ -93,6 +103,44 @@ class sweep(base):
         else:
             res = "NA"
         return res
+
+    def sweep2(self):
+        '''Next gen CV sweep
+        '''
+        d = data("InvertedVoltage", "Current")
+        self.controlOn()
+        currPotential = self.startPotential
+        analogWriteVoltage(self.control,currPotential)
+        lastPotlChange = 0
+        lastCurrChange = 0
+        initDirection = 1 if self.switchPotential > self.startPotential else -1
+        tStart = time.monotonic_ns()
+        tCurrent = tStart
+        tSwitch = tStart + abs(self.startPotential - self.switchPotential)/self.scanrate
+        tEnd = tSwitch + abs(self.endPotential - self.switchPotential)/self.scanrate
+        doneQ = False
+        potlDelta = 1000000000/feathercmSettings["maximumFrequency"]
+        self.setSamplingFrequency()
+        currDelta = 1000000000/self.samplingFrequency
+        # Fixed quiet time
+        time.sleep(0.5)
+        while not doneQ:
+            if time.monotonic_ns() - lastPotlChange > potlDelta:
+                # Change potential
+                if time.monotonic_ns() < tSwitch:
+                    currPotential = (time.monotonic_ns() - tStart)*initDirection*self.scanrate + self.startPotential
+                else:
+                    currPotential = (time.monotonic_ns() - tSwitch*(-1)*initDirection*self.scanrate + self.switchPotential
+                analogWriteVoltage(self.control, currPotential)
+                lastPotlChange = time.monotonic_ns()
+            if time.monotonic_ns() - lastCurrChange > currDelta:
+                d.append([analogRead(self.voltage), analogRead(self.current)])
+                lastCurrChange = time.monotonic_ns()
+            doneQ = time.monotonic_ns() > tEnd
+        # Turn off control
+        self.controlOff()
+        return d
+
 
     def doSweep(self):
         """ Perform a CV sweep """

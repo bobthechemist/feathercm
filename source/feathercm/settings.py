@@ -13,6 +13,8 @@ feathercmSettings = {
     "virtualGround": 1.65,
     "minimumScanrate": 0.1,
     "maximumScanrate": 2.0,
+    "minimumFrequency": 1,
+    "maximumFrequency": 500
 }
 
 def makeCommandDict(commands, functions):
