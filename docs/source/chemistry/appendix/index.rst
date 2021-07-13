@@ -8,4 +8,4 @@ Various topics for just in time learning
 * python basics
 * [Do][Explore][Act]
 * Contributing
-* 
+*

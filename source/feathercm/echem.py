@@ -6,9 +6,10 @@ This module contains functions and classes used in electrochemical measurements
 """
 from .base import *
 from .settings import *
-from analogio import AnalogIn
-from analogio import AnalogOut
+from analogio import AnalogOut, AnalogIn
+from digitalio import DigitalInOut, Direction
 import time
+import gc
 from .data import data
 
 class base:
@@ -26,12 +27,19 @@ class base:
         #self.control = AnalogOut(control)
         self.voltage = AnalogIn(voltage)
         self.current = AnalogIn(current)
+        # Use builtin for indicator
+        self.led = DigitalInOut(board.D13)
+        self.led.direction = Direction.OUTPUT
 
 
     def controlOn(self):
         if self.controlActive:
             raise(RuntimeError("Control pin already active. Bailing because this shouldn't happen."))
         else:
+            try:
+                self.control.deinit()
+            except AttributeError:
+                pass
             self.control = AnalogOut(self.controlPin)
             self.controlActive = True
 
@@ -40,6 +48,7 @@ class base:
             raise(RuntimeError("Control pin is not active. Bailing because this shouldn't happen."))
         else:
             self.control.deinit()
+            self.control = AnalogIn(self.controlPin)
             self.controlActive = False
 
     def scanrateCheck(self, scanrate):
@@ -59,10 +68,10 @@ class sweep(base):
         self.startPotential = -0.5 # Potentials in V
         self.switchPotential = 0.5
         self.endPotential = -0.5
-        self.scanrate = 1 # V/s
+        self.scanrate = 0.5 # V/s
         self.samplingFrequency = None
         self.setSamplingFrequency() # Hz
-        self.ns = 1000000000 # simple definition
+        self.ns = 10**9 # simple definition
         super().__init__(control, voltage, current)
 
     def setSamplingFrequency(self):
@@ -71,7 +80,8 @@ class sweep(base):
         vt = abs(self.switchPotential - self.startPotential) + abs(self.endPotential - self.switchPotential)
         minval = feathercmSettings["minimumFrequency"]
         maxval = feathercmSettings["maximumFrequency"]
-        self.samplingFrequency =  min(maxval, max(minval,(1024 * self.scanrate / vt)))
+        numPoints = feathercmSettings["dataSize"]
+        self.samplingFrequency =  min(maxval, max(minval,(numPoints * self.scanrate / vt)))
 
 
     def setParameter(self, param, value):
@@ -104,33 +114,41 @@ class sweep(base):
             res = "NA"
         return res
 
-    def sweep2(self):
+    def doSweep(self):
         '''Next gen CV sweep
         '''
+        # Inform user of sweep start
+        self.led.value = True
+
+        # clean up memory
+        gc.collect()
         d = data("InvertedVoltage", "Current")
         self.controlOn()
         currPotential = self.startPotential
         analogWriteVoltage(self.control,currPotential)
+        # Fixed quiet time
+        time.sleep(0.5)
         lastPotlChange = 0
         lastCurrChange = 0
         initDirection = 1 if self.switchPotential > self.startPotential else -1
         tStart = time.monotonic_ns()
         tCurrent = tStart
-        tSwitch = tStart + abs(self.startPotential - self.switchPotential)/self.scanrate
-        tEnd = tSwitch + abs(self.endPotential - self.switchPotential)/self.scanrate
+        tSwitch = tStart + 10**9 * abs(self.startPotential - self.switchPotential)/self.scanrate
+        tEnd = tSwitch + 10**9 * abs(self.endPotential - self.switchPotential)/self.scanrate
         doneQ = False
-        potlDelta = 1000000000/feathercmSettings["maximumFrequency"]
+        potlDelta = 10**9/feathercmSettings["maximumFrequency"]
         self.setSamplingFrequency()
-        currDelta = 1000000000/self.samplingFrequency
-        # Fixed quiet time
-        time.sleep(0.5)
+        currDelta = 10**9/self.samplingFrequency
         while not doneQ:
             if time.monotonic_ns() - lastPotlChange > potlDelta:
                 # Change potential
                 if time.monotonic_ns() < tSwitch:
-                    currPotential = (time.monotonic_ns() - tStart)*initDirection*self.scanrate + self.startPotential
+                    currPotential = (time.monotonic_ns() - tStart)* \
+                        initDirection*self.scanrate/10**9 + \
+                        self.startPotential
                 else:
-                    currPotential = (time.monotonic_ns() - tSwitch*(-1)*initDirection*self.scanrate + self.switchPotential
+                    currPotential = (time.monotonic_ns() - tSwitch)*(-1)* \
+                        initDirection*self.scanrate/10**9 + self.switchPotential
                 analogWriteVoltage(self.control, currPotential)
                 lastPotlChange = time.monotonic_ns()
             if time.monotonic_ns() - lastCurrChange > currDelta:
@@ -139,51 +157,13 @@ class sweep(base):
             doneQ = time.monotonic_ns() > tEnd
         # Turn off control
         self.controlOff()
-        return d
 
-
-    def doSweep(self):
-        """ Perform a CV sweep """
-        # Helper functions
-        p = lambda a,b: 1 if a < b else -1 # Return direction
-        c = lambda a,b,d: (a < b) if (d == 1) else (b < a) # Should continue?
-        # Create place to store data
-        d = data("InvertedVoltage", "Current")
-
-        # [?] Do we assume potentials/scanrate are legit?
-
-        # Turn on the control pin and set the initial potential
-        self.controlOn()
-        currPotential = self.startPotential
-        self.control.value = d.toReading(currPotential)
-        # Fixed quiet time
-        time.sleep(0.5)
-        d.append([self.voltage.value, self.current.value])
-        nsr = self.scanrate / self.ns # Gets used frequently
-        # Start the forward scan
-        cp = p(self.startPotential,self.switchPotential) # Gets used frequently
-        sampleTime = self.ns / self.samplingFrequency # Gets used frequently
-        tbegin = time.monotonic_ns()
-        lastSample = tbegin # Start sampling at the same time
-        while c(currPotential, self.switchPotential, cp):
-            currPotential = self.startPotential + cp * (time.monotonic_ns()-tbegin) * nsr
-            self.control.value = d.toReading(currPotential)
-            if time.monotonic_ns() > lastSample +sampleTime:
-                d.append([self.voltage.value, self.current.value])
-                lastSample = time.monotonic_ns()
-        # Set up reverse scan
-        tswitch = time.monotonic_ns()
-        cp = p(self.switchPotential, self.endPotential) # Update
-        while c(currPotential, self.endPotential, cp):
-            currPotential = self.switchPotential +cp * (time.monotonic_ns()-tswitch) * nsr
-            self.control.value = d.toReading(currPotential)
-            if time.monotonic_ns() > lastSample +sampleTime:
-                d.append([self.voltage.value, self.current.value])
-                lastSample = time.monotonic_ns()
-        # Turn off control
-        self.controlOff()
+        self.led.value = False
 
         return d
+
+
+
 
 # Board module should identify itself
 FEATHERWING = "echem"
@@ -227,7 +207,8 @@ def getFunc(*argv):
         res = instrument.getParameter(argv[0])
     return res
 
+
 # Names of commands and their associated functions
 # IMPT: Append to these variables.
-commandList += ['init','go', 'test', 'set', 'get']
-functionList += [initFunc, goFunc, testFunc, setFunc, getFunc]
+commandList += ['init','go', 'test', 'set', 'get', 'current']
+functionList += [initFunc, goFunc, testFunc, setFunc, getFunc, setCurrentMultFunc]
