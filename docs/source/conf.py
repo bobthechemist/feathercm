@@ -42,7 +42,7 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 # Exclude circuitpython modules
-autodoc_mock_imports = ["supervisor", "board", "analogio"]
+autodoc_mock_imports = ["supervisor", "board", "analogio", "digitalio"]
 
 # -- Options for HTML output -------------------------------------------------
 

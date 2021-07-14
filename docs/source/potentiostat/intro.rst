@@ -7,8 +7,11 @@ In this three week module, you will learn about the electrochemical method calle
 .. toctree::
   :maxdepth: 2
   :hidden:
+  :numbered:
 
   iatovoltammetry1
   iatovoltammetry2
   iatovoltammetry3
   echempt1
+  Building the instrument <bob173build>
+  Example data <exampleuse>

@@ -14,18 +14,16 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   :glob:
 
   intro
-  Electrochemistry <chemistry/electrochemistry/index>
-  design/bob173build
-  chemistry/electrochemistry/exampleuse
-  chemistry/index
+  misc/book-roadmap
+  A Potentiostat <potentiostat/intro>
   ---in progress--- <blank>
-  chemistry/chromatography/index
-  chemistry/spectroscopy/index
-  chemistry/electronics/index
-  chemistry/python/index
-  chemistry/signals/index
-  examples
+  tcd/intro
+  gc/intro
+  colorimeter/intro
+  misc/contributing
+  Falstad simulator <misc/simulator>
   feathercm
+  examples
 
 Indices and tables
 ==================
