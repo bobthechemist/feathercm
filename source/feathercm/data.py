@@ -6,8 +6,11 @@ data class for FeAtHEr-Cm
 """
 #gfrom .base import *
 from .settings import *
+import gc
 
 class data:
+    '''Need to determine if these functions belong here or in base.  Currently in both places
+    '''
     def toVoltage(self, value):
         """Convert raw value to a voltage
         """
@@ -43,7 +46,7 @@ class data:
         self.validUnits = ["Current", "Voltage", "InvertedVoltage", "None"]
         self.unitFuncs = [self.toCurrent, self.toVoltage, self.toInvertedVoltage, self.toSelf]
         self.unitDict = {self.validUnits[i]:self.unitFuncs[i] for i in range(0,len(self.validUnits))}
-        self.vals = [[10000,10000],[32768,32768]]
+        self.vals = []
         self.dim = []
         self.storedUnits = 'raw'
         self.maxlength = 1000
@@ -63,6 +66,7 @@ class data:
         for i in self.vals:
             newvals.append([self.fromRaw(self.dim[0],i[0]),self.fromRaw(self.dim[1],i[1])])
         return newvals
+
 
     def append(self, item):
         """Appends item onto val"""

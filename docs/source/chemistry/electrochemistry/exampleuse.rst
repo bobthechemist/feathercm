@@ -118,7 +118,7 @@ Here's the module run on the client computer to interface with a FeAtHEr-Cm inst
       return out
 
   def save(filename, data):
-      with open(filename, mode='w') as f:
+      with open(filename, mode='w', newline='') as f:
           fw = csv.writer(f, delimiter=',')
           for i in data:
               fw.writerow(i)
