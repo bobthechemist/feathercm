@@ -1,3 +1,5 @@
+.. _exampleuse:
+
 Current operation
 =================
 
