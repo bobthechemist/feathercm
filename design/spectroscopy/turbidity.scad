@@ -96,7 +96,6 @@ module base(){
     }
 }
 
-base();
 
 // LED holder will need some way to secure the LED.  Make a compression fit cap.
 module cap(){
@@ -118,6 +117,6 @@ module cap(){
 *cap();
 *translate([0,ht+7,0])ledholder();
 *base();
-*block();
+block();
 
 
