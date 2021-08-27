@@ -1,4 +1,4 @@
-.. _voltagedivider:
+.. _voltagedividerold:
 
 The Voltage Divider
 ===================
