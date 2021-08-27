@@ -1,6 +1,8 @@
 Examples
 ========
 
+These are some design examples - or how various RST constructs are rendered.
+
 Installation/Usage:
 *******************
 I'll get there eventually

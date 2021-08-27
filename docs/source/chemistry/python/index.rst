@@ -1,4 +1,0 @@
-Essential Python Programming
-============================
-
-Placeholder

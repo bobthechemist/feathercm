@@ -17,6 +17,11 @@ The primary reason for selecting the M4 is that this microcontroller contains tw
 
 As for that odd capitalization, it is something I've done for a long time.  I'm not alone and there are `many chemists <https://www.ionicviper.org/>`_ who do this.
 
+What about *Mathematica*?
+*************************
+
+You'll note that while I mentioned above that all programming will be done using Python, there is a fair amount of Mathematica code floating around these pages.  I've been using Mathematica for many years now, and it is a language with which I'm comfortable.  Therefore, when I need to do something quickly, I'll do it using that language.  Additionally, there's a very good chance that students at an American college or university have access to Mathematica, and even if you don't, you can gain access by running the program on a Raspberry Pi (which includes a free for educational use license).  Despite being a closed source package, Mathematica is fairly accessible and serves as a useful tool for some high-order programming, data manipulation and visualization.  This project will not rely on Mathematica, but examples written in this language will be used to demonstrate how one might integrate these projects into a larger system.
+
 Want to dive in?
 ****************
 
@@ -25,7 +30,7 @@ If you are excited about this project and want to start exploring right away, th
 A work in progress
 ~~~~~~~~~~~~~~~~~~
 
-This project is in the very early stages of development.  If you are visiting, you will likely find links that do not work, documentation that seems to require a significant amount of prerequisite knowledge, and many, many outlines and placeholders.  My intention for a *version 1.0* of this project is an instrument with activities for each of the three main areas of chemical instrumentation (spectroscopy, electrochemistry and chromatography).  I am currently working on the electrochemistry modules.
+This project is in the early stages of development.  If you are visiting, you will likely find links that do not work, documentation that seems to require a significant amount of prerequisite knowledge, and many outlines and placeholders.  My intention for a *version 1.0* of this project is an instrument with activities for each of the three main areas of chemical instrumentation (spectroscopy, electrochemistry and chromatography).  I am currently working on the electrochemistry modules.
 
 An open, collaborative effort
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,6 +46,6 @@ I imagine that users of the content will find typographical and content errors a
 What to explore right now
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The current area of activity is building the potentiostat, creating software for controlling it and developing activities for exploring how a potentiostat is built and operated.  You will likely see the most changes in these pages over the next few weeks.
+The current area of activity is building the potentiostat, creating software for controlling it and developing activities for exploring how a potentiostat is built and operated.  Have a look first at :ref:`exampleuse` which shows the data that can be acquired with the potentiostat and how it is analyzed.  Then visit :ref:`voltagedivider` and the 2 or three sections that follow in order to get a feel for how the simulation software is used to introduce the electronics concepts needed to build the potentiostat. Lastly, you can look at :ref:`howtobuild` which presents the schematic among other things.  All other sections will be in various stats of disarray.
 
 .. [*] Yes, this title is homage to Ewing's 1954 text and no, it is not at all suggestive that I am (or ever will be) comparable to Ewing as a scientist.

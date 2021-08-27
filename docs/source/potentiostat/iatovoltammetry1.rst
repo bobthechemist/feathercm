@@ -1,3 +1,5 @@
+.. _voltagedivider:
+
 The Voltage Divider
 ===================
 
