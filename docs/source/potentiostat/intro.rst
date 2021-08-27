@@ -9,7 +9,7 @@ In this three week module, you will learn about the electrochemical method calle
   :hidden:
   :numbered:
 
-  iatovoltammetry1
+  voltagedivider
   iatovoltammetry2
   iatovoltammetry3
   echempt1
