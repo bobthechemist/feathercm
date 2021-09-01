@@ -11,7 +11,6 @@ In this introductory module, you will jump in to instrumental design by building
   :numbered:
 
   Your first instrument <papercraft>
-  Data domains <datadomains>
+  Describing instruments <classifications>
   The M4 Express and CircuitPython <mcu>
   soldering
-  
