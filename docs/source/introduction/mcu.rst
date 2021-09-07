@@ -113,13 +113,16 @@ Because it is relatively straightforward to control the state (on/off) and timin
 
 There is no official definition for the time unit, so that value can be whatever is *reasonable* for your application.
 
+**Assignment submission** Should this activity be used as an assignment, the following submission guidelines are recommended.  Code for each of the four programs should be submitted with sufficient annotation of the code.  At a minimum, each function and flow control loop should be preceded with a comment indicating its operation, global variables should be described upon first use/assignment, and the program should begin with a comment section indicating the intended purpose of the program and the program's author.
+
+In addition to annotated code, the submission should include a paragraph that comments on the following topics: describe the data domain conversions using Enke's data domain map; can the Morse code generator be considered a *signal transducer*; identify one modification to the code that could make the final program more concise without compromising readability.
 
 Program 1
 ---------
 
 Create a sequence of LED flashes that corresponds to the letter A.  Create a global variable that sets the unit of time to a value that is comprehensible to you.  The loop should include a word-length delay (7 time units)
 
-**Expansion** Repeat the same process but for a chemical symbol of your choosing.
+**Optional Expansion** Repeat the same process but for a chemical symbol of your choosing.
 
 Program 2
 ---------
@@ -136,9 +139,9 @@ Program 4
 
 Lastly, you are to incorporate another programmer's code into your own.  Refer to this `Morse code translator <https://www.geeksforgeeks.org/morse-code-translator-python/>`_ example and copy the definition for the variable `MORSE_CODE_DICT` and the function `encrypt` into your program.  Use the `encrypt` function to translate user input from alphanumeric text into Morse code.  Display the encrypted text in the serial console and blink the code on the LED.  This exercise introduces python dictionaries, which are covered in `Chapter 5 <https://automatetheboringstuff.com/2e/chapter5/>`_ of *Automate the Boring Stuff* or a web search on *python dictionaries*.
 
-**Expansion** Research the string method *upper()* and incorporate it into your program so that the user does not have to type her response in all capital letters.
+**Optional Expansion** Research the string method *upper()* and incorporate it into your program so that the user does not have to type her response in all capital letters.
 
 Future
 ------
 
-Can you create a game that emits the Morse code for a chemical element?  
+Can you create a game that emits the Morse code for a chemical element?

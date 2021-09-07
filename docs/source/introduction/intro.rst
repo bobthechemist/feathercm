@@ -7,8 +7,9 @@ In this introductory module, you will jump in to instrumental design by building
 
 .. toctree::
   :maxdepth: 2
-  :hidden:
   :numbered:
+  :hidden:
+
 
   Your first instrument <papercraft>
   Describing instruments <classifications>
