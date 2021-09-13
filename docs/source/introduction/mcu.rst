@@ -29,6 +29,8 @@ CircuitPython programs can be generated with any software that can generate text
 Circuit Python
 ~~~~~~~~~~~~~~
 
+.. note:: Ensure that you are using at least version 6.3.0 of Circuit Python.  You can find this information in the `boot_log.txt` file located on the CIRCUITPY drive
+
 With the latest version of CircuitPython installed on the M4 Express and Mu up and running, it is time to start programming the microcontroller.  Type the following code into the Mu editor:
 
 .. code:: python
@@ -120,19 +122,25 @@ In addition to annotated code, the submission should include a paragraph that co
 Program 1
 ---------
 
-Create a sequence of LED flashes that corresponds to the letter A.  Create a global variable that sets the unit of time to a value that is comprehensible to you.  The loop should include a word-length delay (7 time units)
+Create a sequence of LED flashes that corresponds to the letter A.  Create a global variable that sets the unit of time to a value that is comprehensible to you.  The loop should include a word-length delay (7 time units).  This program can be completed using only the commands introduced in the example code shown above.
 
-**Optional Expansion** Repeat the same process but for a chemical symbol of your choosing.
+**Optional Expansion** Repeat the same process but for a chemical symbol of your choosing.  A two-letter chemical symbol will require the inclusion of a letter-length delay
 
 Program 2
 ---------
 
 Modify the first program to replace the on/delay/off sequences with functions. See `Chapter 3 <https://automatetheboringstuff.com/2e/chapter3/>`_ of *Automate the Boring Stuff* or perform a web search on *python functions* for help on the structure of functions in Python.  Functions should refer to a `global` variable that contains the standard unit of time (i.e. the duration of a dot).  Create functions for dot and dash that do not require arguments and a space function that takes an argument indicating a same letter, same word or between word delay.
 
+.. note:: One way to create the delay function is to make the argument the length of the delay.  Then global variables such as `letterdelay` or `worddelay` with the appropriate amount of time.
+
 Program 3
 ---------
 
 Building on the functions from Program 2, allow the user to input a sequence of dots and dashes to the serial console and have that sequence displayed on the LED.  Your solution should involve an *if* statement, and details can be found in `Chapter 2 <https://automatetheboringstuff.com/2e/chapter2/>`_ of *Automate the Boring Stuff* or a web search on *python conditional statements*.  Your program should handle dots and dashes, treat spaces as letter delays and ignore all other characters.
+
+.. note:: To accept user input from the serial console, use the `input()` function.  A line such as `inp = input("what is your age? ")` will prompt the user for her age and place the result in the variable `inp`.
+
+
 
 Program 4
 ---------
