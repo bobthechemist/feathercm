@@ -96,3 +96,5 @@ Perhaps this is an easier approach
   (* A clunky way to conver the result *)
   vals = ImportString["[" <> StringRiffle[Rest@out, ","] <> "]",
     "PythonExpression"]
+
+    .. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=bob173build.rst&labels=documentation>`_ and share your thoughts there.

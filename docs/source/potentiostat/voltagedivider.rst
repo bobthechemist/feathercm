@@ -103,3 +103,5 @@ Upon completion of this activity, you should have a better understanding of what
 
 .. [#] We will cover the concept of virtual ground later.
 .. [#] C.G. Enke, *Anal. Chem.*, **1971**, *43*, 69A `link <https://dx.doi.org/10.1021/ac60296a764>`_
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=voltagedivider.rst&labels=documentation>`_ and share your thoughts there.

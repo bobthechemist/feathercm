@@ -22,3 +22,5 @@ Outline
 - Practical standpoint - typically soldering components that have been designed to be easily soldered, so just do it.
 - Through hole connections: insert the piece into the circuit board, prepare to solder from the *opposite* side of insertion, use soldering iron at 450F (220 C) to heat the components for ~ 2 seconds, touch solder to the heated components.  Remove solder wire then remove the soldering iron.  The components we use are reasonably tolerant to heat, which means you can go a bit slower to start with, but keep the heating to under 10 seconds.
 - Check the solder joint for a peaked shape.  Round indicates that there is too much solder and too little will result in the through hole not being filled.  Also check for bridging, which is excess solder connecting pads that should not be connected.
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=soldering.rst&labels=documentation>`_ and share your thoughts there.

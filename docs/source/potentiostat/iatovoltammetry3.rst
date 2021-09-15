@@ -40,3 +40,5 @@ We'll quickly see that op amps can do much more than just compare the values of 
 
 1. An operational amplifier does everything in its power to make the *difference* between voltages at the inverting and non-inverting inputs be zero.
 2. In an ideal operational amplifier, the inputs do not draw any current.
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=iatovoltammetry3.rst&labels=documentation>`_ and share your thoughts there.

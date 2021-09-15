@@ -177,3 +177,5 @@ Here's the module run on the client computer to interface with a FeAtHEr-Cm inst
 .. [*] See for example, `<https://www.asdlib.org/onlineArticles/elabware/kuwanaEC_lab/PDF-19-Experiment1.pdf>`_
 
 .. [*] I do not have a good citation for the heterogeneous electron transfer rate of ferrocyanide.
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=exampleuse.rst&labels=documentation>`_ and share your thoughts there.

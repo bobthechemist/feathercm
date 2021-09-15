@@ -45,3 +45,5 @@ Compare and contrast the spectra of various light sources.  Are there aspects of
 Here, we refer to the instrument as a *spectroscope* whereas the original authors use the term *spectrometer*.  Research the difference between the terms and be prepared to argue which term is more suitable for the instrument you have fabricated.
 
 Create a block diagram of the spectroscope.  Identify each of the five components, noting that some aspects of a scientific instrument may be missing or be represented by the same aspect of the instrument.
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=papercraft.rst&labels=documentation>`_ and share your thoughts there.

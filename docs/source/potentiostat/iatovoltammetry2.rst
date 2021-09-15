@@ -32,3 +32,5 @@ Problems
 #. For a voltage divider with a total resistance of 2 kOhm, what is the minimum load resistance that will have a small (< 5%) impact on the desired output voltage?  (Assume for this exercise that Vout is 1/2 Vmax.)
 #. Perform the same calculation for a 20 kOhm voltage divider.
 #. Does the R95 (my term) change with changing the desired output voltage?
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=iatovoltammetry2.rst&labels=documentation>`_ and share your thoughts there.

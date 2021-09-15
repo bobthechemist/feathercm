@@ -3,7 +3,7 @@ A review of Voltammetry fundamentals
 
 Much of this section is paraphrased from `David Harvey's Analytical Chemistry 2.1 text <https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Book%3A_Analytical_Chemistry_2.1_(Harvey)/11%3A_Electrochemical_Methods>`_ which can be accessed via Libre Text.
 
-.. seealso:: Be sure to check out section 11.1 of Harvey's book for a refresher on these topics. 
+.. seealso:: Be sure to check out section 11.1 of Harvey's book for a refresher on these topics.
 
 Electrochemical techniques rely on the measurement of potential and current in order to understand chemical phenomena such as reactivity and concentration.  Most, but not all, electrochemical techniques involve the study of the movement of electrons in an oxidation-reduction reaction.  There are several important concepts in electrochemistry which are worth reviewing:
 
@@ -18,3 +18,5 @@ Let's discuss how these five concepts are incorporated into voltammetry.  The fi
 .. rubric:: Footnotes
 
 .. [#] technically, or adsorbed onto the electrode surface, but we won't deal with adsorbed species here.
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=echempt1.rst&labels=documentation>`_ and share your thoughts there.

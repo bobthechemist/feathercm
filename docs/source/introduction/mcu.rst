@@ -153,3 +153,5 @@ Future
 ------
 
 Can you create a game that emits the Morse code for a chemical element?
+
+.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=mcu.rst&labels=documentation>`_ and share your thoughts there.
