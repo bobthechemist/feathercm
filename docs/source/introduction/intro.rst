@@ -15,3 +15,4 @@ In this introductory module, you will jump in to instrumental design by building
   Describing instruments <classifications>
   The M4 Express and CircuitPython <mcu>
   soldering
+  cppart2
