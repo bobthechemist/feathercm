@@ -16,3 +16,4 @@ In this introductory module, you will jump in to instrumental design by building
   The M4 Express and CircuitPython <mcu>
   soldering
   cppart2
+  conclusion
