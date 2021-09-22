@@ -1,3 +1,5 @@
+.. _circuitpython_2:
+
 Back to Circuit Python
 ======================
 

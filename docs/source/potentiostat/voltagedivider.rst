@@ -53,40 +53,35 @@ Another real-world application is *level shifting*, which is important when one 
 Using the FeAtHEr-Cm voltage divider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Switching gears to real-world use, you will now explore the voltage divider on the FeAtHEr-Cm board.  Assuming you have the board connected to the M4 microcontroller and Mu has been installed on your computer, copy the code below to the microcontroller:
+Set up the code
+***************
 
-.. note::  If you do not have a FeAtHEr-Cm, you may simulate the real-world performance with `this circuit <https://tinyurl.com/yhgndwn6>`_.
+Refer back to :ref:`circuitpython_2` for a refresher on how to read analog input.  Modify that code if necessary to read the analog input from the `PVG` potentiometer, which is connected to analog pin 4 (A4).  Convert the reading to a voltage and print that voltage to the serial console at a rate of 1 hz.  Round the result to 3 decimal places.
 
-.. code:: python
+Data collection
+***************
 
-  import board
-  from analogio import AnalogIn
-  from time import sleep
+Adjust the knob of the PVG potentiometer so that the output reads in the neighborhood of 1.65 V.  Collect voltage readings as a function of the number of knob turns from this location.  Make note of the direction (clockwise or counterclockwise) but it is not necessary that you do both in this experiment.  Aim for 6 to 10 data points.
 
-  inp = AnalogIn(board.A4)
+Do some math
+************
 
-  while True:
-      voltage = inp.value * 3.3/65536
-      print(voltage)
-      sleep(1)
+* Estimate the :math:`\Delta R/turn` of the potentiometer (:math:`R_{total}=22\ k\Omega`) noting that the total number of turns is 25.
+* Create an expression that relates the upper resistance (:math:`R_1`) to the input voltage (:math:`V_{in}=3.3\ V`), the output voltage (:math:`V_{out}`) and the total resistance of the potentiometer.
+* Repeat the above process for the lower resistance (:math:`R_2`).
 
-.. note::  Do not worry if you do not understand this code.  Python will be covered at a later date.
+Plot and analyze
+****************
 
-After saving the code, you should see a series of numbers printed in the serial console of the Mu editor.
-
-.. figure:: img/mu-vd.png
-  :align: center
-  :alt: Mu editor with voltage divider code
-
-In this exercise, you know that the potentiometer is 22 kOhm, the output voltage (what is presented in the serial console) and the input voltage (3.3 V for the M4 Express).  What is not known is the upper and lower resistance values; however, since these two numbers are related to one another through :math:`R_{upper} + R_{lower} = R_{total} = 22 \text{kOhm}`, it is possible to find the respective values.
-
-* Adjust the knob on the **PVG** potentiometer so that the voltage is above 1.75 V.  Determine the slider position, which is defined as :math:`R_{upper}/R_{total}`.
-* Adjust the knob on the potentiometer so that the voltage is below 1.2 V and determine the slider position.
-* Complete the statement: "As the potentiometer knob is turned clockwise, the output voltage _______."
+* Create a spreadsheet with columns for the number of turns, output voltage and calculated upper/lower voltages.
+* Create three plots with output voltage, or resistance plotted as a function of number of turns.
+* Find the slopes of the three plots.  For the resistance plots, determine if there should be a relationship between the two slopes.
+* Use the `LINEST()` function in Excel to find the error in slope of the upper resistor plot.  Find the percent relative error in the slope.  Compare the slope to the expected :math:`\Delta R/turn` value calculated earlier.
 
 Before proceeding, adjust the potentiometer such that the output voltage is :math:`1.65\pm 0.01` V.
 
 Exploring the impact of load
+****************************
 
 Until now, the voltage divider has been used to produce a voltage, but the produced voltage has not been used.  For example, one might want the produced voltage to turn on an LED or drive a motor.  The general term for these cases is *load*.  In the following activity, you will explore the impact of load on the ability of a voltage divider to supply the desired voltage.
 
