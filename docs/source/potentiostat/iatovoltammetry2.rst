@@ -5,6 +5,8 @@ Voltage Divider Problems
 
   In the last section, you should have noticed that the output voltage varies proportionally with the lower resistor and that the current and power are dependent on the sum of the two resistors. The equation for determining the output voltage is :math:`V_{out}=V_{in}\frac{R_{lower}}{R_{lower}+R_{upper}}`
 
+  In addition, you finished that section by exploring how a resistive load applied to the voltage divider on the bob173 potentiostat impacts the output voltage.  Here, we will use the circuit simulator to explore this phenomenon more systematically.
+
 Setup
 ~~~~~
 
@@ -40,6 +42,7 @@ Investigation
 To understand why the load resistor is causing the output of the voltage divider to decrease, we must first recall (or learn) that resistors in a circuit can be mathematically combined, and the math depends on whether the resistors are in series or parallel.  In series, the resistors add as you would expect: two 1-kOhm resistors in series results in a total resistance of 2 kOhm.  If those resistors are in parallel, then the *inverses* of the resistances are added:
 
 .. math::
+
   \begin{aligned}
   \frac{1}{R_{parallel}}&=\frac{1}{R_1}+\frac{1}{R_2}
   \\[15pt]
@@ -49,8 +52,10 @@ To understand why the load resistor is causing the output of the voltage divider
 Take a closer look at the voltage divider with a resistive load, and you will note that the lower resistor is in parallel with the load.  Because these two resistors can be added together, we are in effect *changing the voltage divider*.  The new voltage divider has the same resistance for :math:`R_{upper}` but :math:`R_{lower}` is now the parallel summed value of the original :math:`R_{lower}` and :math:`R_{load}`.  Incorporating this change into the voltage divider equation, we get:
 
 .. math::
+  :label: eq_a
 
   V_{loaded} = V_{in}\times \frac{R_{lower}R_{load}}{R_{upper}(R_{lower}+R_{load})+R_{lower} R_{load}}
+
 
 We can further "simplify" this equation by noting that the upper and lower resistances are related to one another, given that we are using a potentiometer.  Substituting :math:`R_{pot}=R_{upper}+R_{lower}` into the above equation, it is possible to remove the upper resistance from the equation, yielding:
 
@@ -96,8 +101,6 @@ With an expression for :math:`\text{error}_{max}`, it is now possible to explore
 When the resistances are equal, :math:`\text{error}_{max}=0.8`, so the voltage divider output is attenuated by 20%.  As the load resistance becomes much larger than the potentiometer resistance, the impact decreases.  At 10 times the resistance of the potentiometer, the load attenuates the voltage divider output by 2.5 percent.  The opposite effect is seen when the load is very small relative to the potentiometer, and when :math:`R_{load} = 0.1 R_{pot}`, the output has been attenuated by over 70% and the voltage divider is clearly not functioning properly.
 
 The end result of this analysis is that a voltage divider can only work properly when the load resistance is much greater than the potentiometer resistance.  This result might suggest that the solution to using voltage dividers is to use the smallest potentiometer resistance possible.  However, one must also keep in mind the power consumption of the potentiometer.  As the potentiometer resistance decreases, the current (and therefore the power) will increase, resulting in a poor use of the power supply.
-
-
 
 
 .. tip:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=iatovoltammetry2.rst&labels=documentation>`_ and share your thoughts there.
