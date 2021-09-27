@@ -27,6 +27,10 @@ In this circuit, the op amp is behaving as a *comparator*.  It is comparing the 
 * If the inverting input is greater than the non-inverting input (which is tied to ground) then set the output as negative as possible.
 * If the inverting input is less than the non-inverting input, then set the output as positive as possible.
 
+Note that the comparator is also amplifying the signal.  Look at the properties of the input signal and note that the voltage of the square wave is :math:`\pm 5\ V` while the output is :math:`\pm 15\ V` for an effective gain of 3.  Notice what happens when the input square wave voltage is decreased further.  For square waves as small as 5 mV, the comparator still provides a crisp output with the voltage limits defined by the input voltages supplied to the operational amplifier.  This behavior is what is expected in an *ideal* situation, however.
+
+The simulation software allows for using a more realistic op amp model.  Swapping out the ideal op amp for a real one (under active building blocks) and note that the output no longer has a crisp switch from low to high and vice versa.  Increasing the voltage of the input square wave restores the behavior to that of the ideal... almost.  Mouse over the output scope and note that the output square wave is not actually cycling between :math:`\pm 15\ V`.  Many real operational amplifiers are not able to set their outputs to the supply voltages.  Those that can are referred to as *rail to rail output*.  Although not demonstrated in this simulation, it is difficult for some op amps to accept input voltages as the rails as well.  Those that can do both (accept and deliver voltage at the power supply limits) are referred to as *rail to rail input/output* or RRIO.
+
 A comparator does one more thing, which isn't readily apparent in the simulation: if the inputs are equal, set the output to zero.
 
 .. note::

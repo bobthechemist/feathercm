@@ -13,6 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../../source'))
+sys.path.append(os.path.abspath('./_ext'))
 
 
 # -- Project information -----------------------------------------------------
@@ -23,6 +24,7 @@ author = 'BoB LeSuer (BoBthechemist)'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
+
 
 
 # -- General configuration ---------------------------------------------------
