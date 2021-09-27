@@ -13,6 +13,7 @@ In this three week module, you will learn about the electrochemical method calle
   voltagedivider
   iatovoltammetry2
   iatovoltammetry3
+  opamp
   echempt1
   Building the instrument <bob173build>
   Example data <exampleuse>
