@@ -97,3 +97,5 @@ Any number of sources can be added together, limited by physical and practical c
 
   1. Modify the circuit to generate the average of the three sources.
   2. Modify the circuit to generate a weighted average of the sources, where the 2nd source is weighted twice as much as the other two.
+
+.. tip:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=opamp.rst&labels=documentation>`_ and share your thoughts there.
