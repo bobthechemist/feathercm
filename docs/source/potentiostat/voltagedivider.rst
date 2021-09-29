@@ -47,7 +47,7 @@ Another real-world application is *level shifting*, which is important when one 
 
 .. note::
 
-  Voltage dividers **cannot** be used in bi-directional communication because it can only shift a voltage *down*.  A 5 V source can be shifted down to 3.3 V, but a 3.3 V source cannot be shifted *down* to 5 V.
+  Voltage dividers **cannot** be used in bi-directional communication because it can only shift a voltage *down*.  A 5 V source can be shifted down to 3.3 V, but it does not make sense to shift a 3.3 V source *down* to 5 V.
 
 
 Using the FeAtHEr-Cm voltage divider
@@ -73,7 +73,7 @@ Do some math
 Plot and analyze
 ****************
 
-* Create a spreadsheet with columns for the number of turns, output voltage and calculated upper/lower voltages.
+* Create a spreadsheet with columns for the number of turns, output voltage and calculated upper/lower resistances.
 * Create three plots with output voltage, or resistance plotted as a function of number of turns.
 * Find the slopes of the three plots.  For the resistance plots, determine if there should be a relationship between the two slopes.
 * Use the `LINEST()` function in Excel to find the error in slope of the upper resistor plot.  Find the percent relative error in the slope.  Compare the slope to the expected :math:`\Delta R/turn` value calculated earlier.

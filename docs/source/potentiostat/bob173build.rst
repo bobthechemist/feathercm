@@ -12,7 +12,7 @@ The potentiostat board is referred to as the `bob173` and is currently in `beta`
   :align: center
   :alt: Schematic for the bob173-gamma
 
-  Schematic for the bob173-gamma.  You can :download:`download the Eagle schamtic and board files here <bin/bob173-gamma-design-files.zip>`
+  Schematic for the bob173-gamma.  You can :download:`download the Eagle schematic and board files here <bin/bob173-gamma-design-files.zip>`
 
 The Eagle documents above can be used to create a layout that is compatible with the Featherwing format.  Details for creating your own boards are forthcoming, but the project can be completed without using a featherwing (although it will not be as compact).  In addition to a breadboard and some wires, you will need items listed in the table below.
 
