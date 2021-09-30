@@ -14,6 +14,7 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   :glob:
 
   intro
+  tipsandtricks
   misc/book-roadmap
   Introduction <introduction/intro>
   A Potentiostat <potentiostat/intro>
