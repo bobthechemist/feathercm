@@ -39,7 +39,7 @@ def setCurrentMultFunc(*argv):
     if argv[0] is None:
         res = f'Current follower currently has {feathercmSettings["currentFollowerResistor"]}'
     else:
-        feathercmSettings["currentFollowerResistor"] = argv[0]
+        feathercmSettings["currentFollowerResistor"] = float(argv[0])
         res = f'Set current follower resistance to {feathercmSettings["currentFollowerResistor"]}'
     return res
 

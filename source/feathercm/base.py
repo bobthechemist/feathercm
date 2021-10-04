@@ -136,4 +136,3 @@ def toVoltage(reading, vground = True):
         val -= feathercmSettings["virtualGround"]
 
     return val
-
