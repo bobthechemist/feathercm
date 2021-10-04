@@ -46,6 +46,8 @@ The last command tells the potentiostat to perform the cyclic voltammogram.  The
 
 The `1` in the read command above tells the client software to strip text and format numbers for easy export (via `save`) to a CSV file. These CSV files can then be processed the same way you'd process any other data.
 
+.. _example-data:
+
 Example data
 ~~~~~~~~~~~~
 
@@ -178,4 +180,4 @@ Here's the module run on the client computer to interface with a FeAtHEr-Cm inst
 
 .. [*] I do not have a good citation for the heterogeneous electron transfer rate of ferrocyanide.
 
-.. warning:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=exampleuse.rst&labels=documentation>`_ and share your thoughts there.
+.. tip:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=exampleuse.rst&labels=documentation>`_ and share your thoughts there.
