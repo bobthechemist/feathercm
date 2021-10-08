@@ -7,6 +7,7 @@
 import serial
 import csv
 from time import sleep
+import matplotlib.pyplot as plt
 
 class fc():
   def __init__(self, *argv):
@@ -44,3 +45,11 @@ def save(filename, data):
       for i in data:
           fw.writerow(i)
 
+def plot(*data):
+    for d in data:
+        x = [i[0] for i in d]
+        y = [i[1] for i in d]
+        plt.plot(x, y)
+    plt.xlabel("Potential (V)")
+    plt.ylabel("Current (A)")
+    plt.show()
