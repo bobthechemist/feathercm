@@ -43,7 +43,16 @@ def setCurrentMultFunc(*argv):
         res = f'Set current follower resistance to {feathercmSettings["currentFollowerResistor"]}'
     return res
 
+def setDataSizeFunc(*argv):
+    global feathercmSettings
+    if argv[0] is None:
+        res = f'Data size is currently {feathercmSettings["dataSize"]}'
+    else:
+        feathercmSettings["dataSize"] = int(argv[0])
+        res = f'Set data size to {feathercmSettings["dataSize"]}'
+    return res
+
 # Names of commands and their associated functions
 # IMPT: Append to these variables.
-commandList += ['current']
-functionList += [setCurrentMultFunc]
+commandList += ['current', 'datasize']
+functionList += [setCurrentMultFunc, setDataSizeFunc]
