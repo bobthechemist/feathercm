@@ -5,6 +5,8 @@ from .settings import *
 from .data import data
 
 # Base functions
+# NOTE: functions here may have too much echem in them and belong in a different location.  Base should be applicable to all instruments.
+# Presntly, will create a specbase with the intention of making that generic for future instruments.
 
 def initFunc(*argv):
     '''Default initialization function
@@ -14,9 +16,11 @@ def initFunc(*argv):
     return 'No Featherwing initialization function found.'
 
 def rebootFunc(*argv):
-    '''Reboots the potentiostat
+    '''Reboots the instrument
     '''
     supervisor.reload()
+
+
 
 commandList += ["init", "reboot"]
 functionList += [initFunc, rebootFunc]
@@ -70,6 +74,8 @@ def respond(response):
     elif type(response) is list:
         for i in response:
             print(i)
+    elif type(response) is float:
+        print(f'{response:.3f})
     else:
         print(f"I cannot handle type: {type(response)}.")
 
