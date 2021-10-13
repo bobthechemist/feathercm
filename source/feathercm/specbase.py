@@ -41,9 +41,15 @@ def rebootFunc(*argv):
 
 def validCommandFunc(*argv):
     '''Returns valid command list
-    Note: init will show up twice since there is a default function
+    TODO: allow for help description
     '''
-    return f'valid commands are: {commandList}'
+    retval = f'valid commands are: {list(set(commandList))}'
+    try:
+        retval = dir(commandDict[argv[0]])
+        retval = 'Waiting to include this functionality'
+    except KeyError:
+        pass
+    return retval
 
 commandList += ['init', 'reboot', '?']
 functionList += [initFunc, rebootFunc, validCommandFunc]
@@ -90,7 +96,7 @@ def commandValidQ():
 def respond(response):
     ''' Posts a response
     '''
-    if type(response) is str:
+    if type(response) in [str, int, float]:
         print(response)
     # Appropriate only for echem, which is probably OK, but data class should probably be echemdata class
     elif type(response) is data:
@@ -99,5 +105,7 @@ def respond(response):
     elif type(response) is list:
         for i in response:
             print(i)
+    elif type(response) is float:
+        print(f'{response:.3f}')
     else:
         print(f"I cannot handle type: {type(response)}.")
