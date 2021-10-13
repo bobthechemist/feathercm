@@ -1,4 +1,7 @@
 from .specbase import *
+from .allsettings import specSettings as settings
+from .allsettings import specDescriptiosn as descriptions
+
 
 
 FEATHERWING = "spec"
@@ -33,9 +36,32 @@ def readFunc(*argv):
     else:
         return f'Valid options are {options}'
 
+def setFunc(*argv):
+    res = str(argv)
+    if argv[0] is None:
+        res = 'Choose from: ' + ', '.join([f'{descriptions[i]} ({i})' for i in descriptions.keys()]) + '.'
+    else:
+        # Split argument
+        par = argv[0].split(" ", 1)
+        if par[0] in settings.keys():
+            res = f'I will set {par[0]} to {par[1]}.'
+            settings[par[0]] = par[1]
+        else:
+            res = f'{par[1]} Valid parameters are: ' + ', '.join([f'{list(descriptions.keys())}])
+    return res
 
+def getFunc(*argv):
+    res = str(argv)
+    if argv[0] is None:
+        res = 'Choose from: ' + ', '.join([f'{descriptions[i]} ({i})' for i in descriptions.keys()]) + '.'
+    else:
+        if argv[0] in settings.keys():
+            res = settings[argv[0]]
+        else:
+            res = f'No such parameter {argv[0]}'
+    return res
 
 # Names of commands and their associated functions
 # IMPT: Append to these variables.
-commandList += ['init', 'source', 'read']
-functionList += [initFunc, sourceFunc, readFunc]
+commandList += ['init', 'source', 'read', 'set', 'get']
+functionList += [initFunc, sourceFunc, readFunc, setFunc, getFunc]
