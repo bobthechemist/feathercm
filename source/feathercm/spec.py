@@ -74,14 +74,16 @@ def timeSeriesFunc(*argv):
     # Make sure source is on
     source.value = True
     data = []
+    i = 0
     timeDelta = 10**9/float(settings['FR'])
     lastTime = monotonic_ns()
     indicator.value = True
     while len(data) < int(settings["NP"]):
         currentTime = monotonic_ns()
         if (currentTime - lastTime) > timeDelta:
-            data.append(detector.value)
+            data.append([i,detector.value])
             lastTime = currentTime
+            i = i + 1
     indicator.value = False
     source.value = False
     return data
