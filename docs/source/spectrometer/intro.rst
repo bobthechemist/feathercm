@@ -1,7 +1,9 @@
-Spectroscopy
-==============
+.. _turbidimetry_intro
 
-Designing turbidity/nephelometry instrument
+Spectroscopy
+============
+
+Designing turbidimetry/nephelometry instrument
 
 Outcomes
 * A spectroscopic instrument that uses an LED as a source and detector
@@ -14,12 +16,15 @@ Outcomes
 Outcomes in detail
 * Electronics
   * What is an LED; how does it make light; how can it be used as a sensor
+    * https://www.youtube.com/playlist?list=PLfYdTiQCV_p7sDswtLZKK43BWOd2mTmHC
+    * Five of the videos above in order: 3, 1, 2, 5, 8.
   * Signal amplification (which is a duplicate of pstat)
   * Using a transistor switch
     * When using microcontrollers, we have to be careful with how much current is drawn from a pin (https://tinyurl.com/ye4uay78) use of transistor helps us turn a device on and off which little current drawn from the switch itself.
   * Explore a passive filter, then compare performance to an active filter.  Benefits of complexity
     * Use Falstad to explore how a low pass filter attenuates an AC signal.  Make the Bode plot?
     * Compare above plot to the active filter.
+    * Introduce dB
 * 3D printing, designing with OpenSCAD, review of geometry and introduction to arithmetic with shapes
   * Download from `their website <https://openscad.org/>`_
   * Create a device that can hold two LEDs at a fixed angle and incorporate the sample cell.
@@ -39,3 +44,13 @@ Many instrument design labs explore colorimetry or spectrophotometry, and the in
 * Review of spectroscopy fundamentals
 * Design and implementation of a turbidity meter
 * Possibly building an endpoint detector for `this <https://pubs-acs-org.brockport.idm.oclc.org/doi/10.1021/acs.jchemed.0c01165>`_
+
+.. toctree::
+  :maxdepth: 2
+  :hidden:
+  :numbered:
+
+  theory
+  design
+  cad
+  projects
