@@ -18,11 +18,11 @@ FeAtHEr-Cm is an alternative approach to teaching the traditional 2nd semester o
   misc/book-roadmap
   Introduction <introduction/intro>
   A Potentiostat <potentiostat/intro>
+  spectrometer/intro
   misc/bibliography
   ---in progress--- <blank>
   tcd/intro
   gc/intro
-  colorimeter/intro
   misc/contributing
   Falstad simulator <misc/simulator>
   feathercm

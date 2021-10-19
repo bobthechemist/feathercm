@@ -75,7 +75,7 @@ def respond(response):
         for i in response:
             print(i)
     elif type(response) is float:
-        print(f'{response:.3f})
+        print(f'{response:.3f}')
     else:
         print(f"I cannot handle type: {type(response)}.")
 
