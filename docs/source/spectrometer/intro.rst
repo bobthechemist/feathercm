@@ -1,49 +1,57 @@
-.. _turbidimetry_intro
+.. _turbidimetry_intro:
 
 Spectroscopy
 ============
 
 Designing turbidimetry/nephelometry instrument
 
+Many instrument design labs explore colorimetry or spectrophotometry, and the intention here is not to reinvent the wheel but to add to it.  We will explore some aspects of instrument design such as signal amplification, non-chemical deviations from Beer's Law, signal transduction and task-specific design.
+
 Outcomes
+
 * A spectroscopic instrument that uses an LED as a source and detector
 * Circuit design for signal amplification, passive and active filtering
 * 3D printing of a sample holder
 * Comparison of home-built vs commercial instrument performance
 * Exploring a relevant project idea.
 
+Project timeline
 
-Outcomes in detail
-* Electronics
-  * What is an LED; how does it make light; how can it be used as a sensor
-    * https://www.youtube.com/playlist?list=PLfYdTiQCV_p7sDswtLZKK43BWOd2mTmHC
-    * Five of the videos above in order: 3, 1, 2, 5, 8.
-  * Signal amplification (which is a duplicate of pstat)
-  * Using a transistor switch
-    * When using microcontrollers, we have to be careful with how much current is drawn from a pin (https://tinyurl.com/ye4uay78) use of transistor helps us turn a device on and off which little current drawn from the switch itself.
-  * Explore a passive filter, then compare performance to an active filter.  Benefits of complexity
-    * Use Falstad to explore how a low pass filter attenuates an AC signal.  Make the Bode plot?
-    * Compare above plot to the active filter.
-    * Introduce dB
-* 3D printing, designing with OpenSCAD, review of geometry and introduction to arithmetic with shapes
-  * Download from `their website <https://openscad.org/>`_
-  * Create a device that can hold two LEDs at a fixed angle and incorporate the sample cell.
-* Turbidity background
-  * `Video from Cleveland water department <https://www.youtube.com/watch?v=aY4xeg6QOtE>`_
-  * `Video from Endress-Hauser <https://www.youtube.com/watch?v=qz8xHQJw6qY>`_
-  * Discussion of attenuation vs. scattering
-* Student design decisions
-  * Which filter will be used (on board active does additional gain)
-  * Source color (EPA uses White, we'll use red or green)
-  * Attenuation vs. scattering
-  * Sample holder design
-  * Phone wire for easy wiring
+1. Intro to turbidimetry/nephelometry - building an instrument that can measure the clarity of water
 
-Many instrument design labs explore colorimetry or spectrophotometry, and the intention here is not to reinvent the wheel but to add to it.  We will explore some aspects of instrument design such as signal amplification, non-chemical deviations from Beer's Law, signal transduction and task-specific design.
+   * Watch intro videos and read paper
 
-* Review of spectroscopy fundamentals
-* Design and implementation of a turbidity meter
-* Possibly building an endpoint detector for `this <https://pubs-acs-org.brockport.idm.oclc.org/doi/10.1021/acs.jchemed.0c01165>`_
+2. Setting goals for instrument design and introduction to CAD with OpenSCAD
+
+   * Become familiar with OpenSCAD; develop idea for instrument
+   * Download from `their website <https://openscad.org/>`_
+   * Which filter will be used (on board active does additional gain)
+   * Source color (EPA uses White, we'll use red or green)
+   * Sample holder design
+   * Phone wire for easy wiring
+
+3. New circuit components: LEDs, transistors and filters
+
+   * Do integrated simulation activities
+
+4. Building the instrument
+
+   * Solder instrument
+
+5. Creating 3D printed prototypes of the instrument
+
+   * 3D printing
+   * Create a device that can hold two LEDs at a fixed angle and incorporate the sample cell.
+
+6. Modifying the prototype
+
+   * 3D printing
+
+7. Measurements 1: Instrument setup
+8. Measurements 2: Initial data acquisition
+9. Measurements 3: Fixing mistakes, testing reproducibility and robustness
+10. Presentation
+
 
 .. toctree::
   :maxdepth: 2
@@ -54,3 +62,5 @@ Many instrument design labs explore colorimetry or spectrophotometry, and the in
   design
   cad
   projects
+
+.. tip:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=intro.rst&labels=documentation>`_ and share your thoughts there.
