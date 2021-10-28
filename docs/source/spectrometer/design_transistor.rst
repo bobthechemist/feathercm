@@ -24,7 +24,7 @@ Essentials of transistor switching
 
 * The problem we note here is that the microcontroller can only deliver 8 mA from its digital IO pins but we want to deliver twice that amount to light the LED.  The transistor will help with this problem.
 * One of the uses of a transistor is as a digital switch.  A transistor contains three connections, a collector, base, and emitter.  The base can be thought of as the toggle which turns on/off the flow of current from the collector to the emitter.
-* To turn on a transistor switch requires a certain amount of current flowing into the base.  The actual amount of current depends on the type of transistor, but it will roughly be the amount of current we want to flow through our device (16 mA for the LED) divided by 100. 
+* To turn on a transistor switch requires a certain amount of current flowing into the base.  The actual amount of current depends on the type of transistor, but it will roughly be the amount of current we want to flow through our device (16 mA for the LED) divided by 100.
 * Since the digital IO pins deliver 3.3 V and we want 160 uA to flow, we need a resistor with a value of about 20 K to apply the correct current to the transistor base.
 * Note that the numbers don't quite add up, and that is because the transistor experiences a voltage drop as well, and we haven't taken that into consideration.  Again, this value varies based on the type of resistor and the amount of current flowing, but we can use a ballpark figure of 0.6 - 0.7 V.  So revisiting the entire switch circuit:
 
@@ -33,7 +33,7 @@ Essentials of transistor switching
 
 * If we want approximately 16 mA to flow through the LED, we need a resistor that solves 3.3 - (0.016) R - 1.8 - 0.65 = 0
 
-* Here is a `good resource<https://www.nutsvolts.com/?/magazine/article/may2015_Secura>`_ for understanding how a transistor can be used as a digital switch.
+* Here is a `good resource <https://www.nutsvolts.com/?/magazine/article/may2015_Secura>`_ for understanding how a transistor can be used as a digital switch.
 
 
 .. tip:: See a problem?  Have a suggestion? Please `raise an issue <https://github.com/bobthechemist/feathercm/issues/new?title=design_transistor.rst&labels=documentation>`_ and share your thoughts there.
