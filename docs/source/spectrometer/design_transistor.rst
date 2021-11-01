@@ -3,6 +3,13 @@
 Essentials of transistor switching
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Better outline?
+
+1. Define the problem: we want to be able to turn our source on and off from software, and in principle we can do that with a GPIO pin.  However, we also want a large amount of current so that our source is bright, and that presents a problem because the GPIO pins can only source a limited amount of current (for the M4 express, it is 10 mA max and 7 mA recommended).  How can we make a switch and avoid damaging the microcontroller
+2. An electronic component called a transistor can be used as a switch.  A good resource can be found here, but the short story is that applying a small amount of current to the base of a transistor allows a larger flow of current to move from its collector pin to its emitter pin.
+3. What is "a small amount" of current from the transistor's standpoint?
+4. What do I need to know as a practical builder?
+
 * Using a transistor switch
 
   * When using microcontrollers, we have to be careful with how much current is drawn from a pin (https://tinyurl.com/ye4uay78) use of transistor helps us turn a device on and off which little current drawn from the switch itself.
@@ -15,7 +22,8 @@ Essentials of transistor switching
 
   .. raw:: html
 
-    <iframe width='100%' height='500' src='https://tinyurl.com/ye4uay78' frameborder='0'></iframe
+    <iframe width='100%' height='500' src='https://tinyurl.com/ye4uay78' frameborder='0'></iframe>
+
 
 * Before looking at the transistor switch, let's focus on the LED circuit.  Mouse over the source and note the max voltage.  There is one resistor in the circuit, so the current should be determined using Ohm's Law.  Turns out this isn't quite right. Mouse over the resistor and note that the voltage drop is only 1.55.  Therefore, the LED is also acting like a resistor of sorts.  If the total voltage is 3.3 V and there is 1.55 dropped across the resistor, how much is dropped across the LED?  This amount is not fixed, and it's impractical to find the value mathematically, so we use a ballpark figure of an LED dropping about 1.8 V.  More importantly is that we want to ensure that there is no more than 20 mA of current flowing through the LED, or else it will be damaged.  So finding an optimal resistance requires
 

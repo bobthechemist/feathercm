@@ -28,6 +28,9 @@ def sourceFunc(*argv):
     options = ['1', 'on', 'ON']
     if argv[0] in options:
         onoff = 'on'
+        source.value = True
+    else:
+        source.value = False
     return f'Turning source {onoff}.'
 
 def readFunc(*argv):
