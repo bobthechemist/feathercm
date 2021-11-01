@@ -27,7 +27,7 @@ class fc():
   def dia(self, cmd, duration = 1):
       self.send(cmd)
       sleep(duration)
-      return self.read()
+      return [i.rstrip().decode() for i in self.read()]
 
 def clean(response):
   out = []
