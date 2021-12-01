@@ -52,6 +52,7 @@ Project timeline
 9. Measurements 3: Fixing mistakes, testing reproducibility and robustness
 10. Presentation
 
+http://www.mdpi.com/1424-8220/14/4/7142 might be interesting to model
 
 .. toctree::
   :maxdepth: 2
