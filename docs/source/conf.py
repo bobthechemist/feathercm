@@ -66,10 +66,9 @@ math_numfig = True
 #numfig_secnum_depth = 2
 math_eqref_format = "Equation {number}"
 
-#    'extensions': ['tex2jax.js'],
-#    'jax': ['input/TeX', 'output/HTML-CSS'],
+
 mathjax3_config = {
     'chtml' : {
-        'mtextInheritFont' : 'true'
+        'mtextInheritFont' : 'true',
     }
 }
