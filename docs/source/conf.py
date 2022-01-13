@@ -65,3 +65,10 @@ math_numfig = True
 # Check if needed before implementing
 #numfig_secnum_depth = 2
 math_eqref_format = "Equation {number}"
+
+
+mathjax3_config = {
+    'chtml' : {
+        'mtextInheritFont' : 'true',
+    }
+}
