@@ -8,7 +8,7 @@ Start Here
 Why FeAtHEr-Cm?
 ~~~~~~~~~~~~~~~
 
-When exploring platforms that could be useful for introducing chemists it scientific instrumentation design, I wanted something that was relatively inexpensive, easy to operate, established, and supported by a larger community.  The `feather platform <https://learn.adafruit.com/adafruit-feather>`_ by Adafruit Industries checks all of those boxes *plus* provides a cross-compatible platform with a vast array of tools already available.  The flexibility comes at a cost, however, and that is the array of choices that can be made is a bit overwhelming.  To bring some focus to the project, I have made two design decisions:
+When exploring platforms that could be useful for introducing chemists to scientific instrumentation design, I wanted something that was relatively inexpensive, easy to operate, established, and supported by a larger community.  The `feather platform <https://learn.adafruit.com/adafruit-feather>`_ by Adafruit Industries checks all of those boxes *plus* provides a cross-compatible platform with a vast array of tools already available.  The flexibility comes at a cost, however, and that is the array of choices that can be made is a bit overwhelming.  To bring some focus to the project, I have made two design decisions:
 
 * The microcontroller board that will serve as the brains of any FeAtHEr-Cm instrument is the M4 Express and there is no intention to make activities compatible with other microcontrollers.
 * All programming will be done in `Circuit Python <circuitpython.org>`_
@@ -34,7 +34,7 @@ You'll note that while I mentioned above that all programming will be done using
 Want to dive in?
 ****************
 
-If you are excited about this project and want to start exploring right away, then I suggest purchasing an `M4 Feather <https://www.adafruit.com/product/3857>`_  along with Adafruit's `parts pal <https://www.adafruit.com/product/2975>`_.  That will give you nearly all the parts you need, and many that you'll find fun to play with.  The only additional components I suggest would be alligator clips and a quad op amp - the MCP6004 - which isn't sold by Adafruit but you can find it at other vendors.  I purchase from `Newark <newark.com>`_ but you might want to try `Digikey <digikey.com>`_ as they are also a reseller for Adafruit products and you might be able to get all of the components from one vendor.
+If you are excited about this project and want to start exploring right away, then I suggest purchasing an `M4 Feather <https://www.adafruit.com/product/3857>`_  along with Adafruit's `parts pal <https://www.adafruit.com/product/2975>`_.  That will give you nearly all the parts you need, and many that you'll find fun to play with.  The only additional components I suggest would be alligator clips and a quad op amp - the MCP6004 - which isn't sold by Adafruit but you can find it at other vendors.  I purchase from `Newark <https://www.newark.com>`_ but you might want to try `Digikey <https://www.digikey.com>`_ as they are also a reseller for Adafruit products and you might be able to get all of the components from one vendor.
 
 A work in progress
 ~~~~~~~~~~~~~~~~~~
@@ -44,7 +44,7 @@ This project is in the early stages of development.  If you are visiting, you wi
 An open, collaborative effort
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-I am building this project using `github <github.com>`_ and `read the docs <readthedocs.com>`_ for a few important reasons.
+I am building this project using `github <https://www.github.com>`_ and `read the docs <https://www.readthedocs.com>`_ for a few important reasons.
 
 * Both platforms provide open access to the content, so that others may view, use and modify what is presented here
 * Both platforms work nicely together, allowing me to generate both software and instructional content in one location and have it display in a pretty format without much input on my part.

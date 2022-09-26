@@ -28,7 +28,7 @@ Data Domains
 More details to come.  This section covers the concepts presented in Enke's article. [Enke1971]_  Learning objectives are:
 
 * Define data domains
-* Understand that a transducer convers data from a non-electrical to electrical domain (and vice versa)
+* Understand that a transducer converts data from a non-electrical to electrical domain (and vice versa)
 * Evaluate the argument that a scientific instrument performs (at least) two data domain conversions
 * Describe a scientific instrument in terms of a sequence of data domain conversions
 * Understand that a measurement involves both a difference detector and a reference standard quantity
